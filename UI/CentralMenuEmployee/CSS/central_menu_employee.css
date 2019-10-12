@@ -1,7 +1,17 @@
 header {
     text-align: center;
-    margin: 0;
+    margin: 1px;
     padding: 0;
+}
+
+.jumbotron {
+    margin: 1px;
+    padding: 0;
+    padding-top: 3%;    
+}
+
+.lead{
+    margin: 50px;
 }
 
 .btn {

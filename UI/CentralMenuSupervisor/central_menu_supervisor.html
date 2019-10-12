@@ -6,26 +6,27 @@
     <title>Sample HTML</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/central_menu_employee.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/central_menu_supervisor.css'>
 </head>
 <body>
     <header>
         <div class="jumbotron">
             <h1 class="display-4">Tuition Reimbursement Management System</h1>             
             <p class="lead">Welcome <span id="employeeName">[EMPLOYEE NAME GOES HERE]</span>!</p>
-        </div>
-    </header>
-    <footer>
-        <div class="dropdown">
-            <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Notifications <span class="badge badge-light">4</span>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown">
+                <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Notifications <span class="badge badge-light">4</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
             </div>
         </div>
+        
+    </header>
+    <footer>
         <div class="row">
             <button type="button" class="btn btn-primary btn-lg">
                 Create New Reimbursement Request 
@@ -38,7 +39,7 @@
         </div>
         <div class="row">
             <button type="button" class="btn btn-success btn-lg">
-                Approve Reimbursement Requests
+                Approve/Reject Reimbursement Requests
             </button>    
         </div>
         <div class="row">
