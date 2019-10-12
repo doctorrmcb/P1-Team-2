@@ -1,0 +1,16 @@
+header {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+#dropdownMenuButton {
+    text-align: left;
+    border: 0;
+}
