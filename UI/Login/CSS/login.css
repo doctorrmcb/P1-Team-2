@@ -44,14 +44,12 @@ body {
 .form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
-    outline: 0;
     background: #4CAF50;
     width: 100%;
     border: 0;
     padding: 15px;
     color: #ffffff;
-    font-size: 14px;
-    cursor: pointer;
+    font-size: 20px;
 }
 
 .form button:hover,
@@ -62,7 +60,7 @@ body {
 .message {
     margin-top: 15px;
     color: aliceblue;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 .register-form {
