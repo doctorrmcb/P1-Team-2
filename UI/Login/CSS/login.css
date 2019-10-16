@@ -31,16 +31,23 @@ body {
     width: 100%;
     border: 0;
     padding: 4.5%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
     font-size: 20px;
 }
 
 .register-form input {
     font-family: "Roboto", sans-serif;
     background: #f2f2f2;
-    width: 100%;
+    width: 45%;
     border: 0;
     padding: 0.5%;
+    margin: 0.1%;
     font-size: 20px;
+}
+
+#addressInput {
+    width: 90.5%;
 }
 
 .login-form {
@@ -61,6 +68,7 @@ body {
     width: 100%;
     border: 0;
     padding: 4%;
+    margin: 0.2%;
     color: #ffffff;
     font-size: 20px;
 }
@@ -98,4 +106,8 @@ body {
     margin-top: 1%;
     color: aliceblue;
     font-size: 20px;
+}
+
+#registerButton{
+    width: 90.5%;
 }
