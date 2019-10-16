@@ -2,12 +2,13 @@ create table p1_test.employees (
 	employee_id int4,
 	username varchar(40),
 	password varchar(40),
+	name text,
 	address text,
 	email text,
 	phone text,
 	reports_to int4,
 	title text,
-	annual_received_amount numeric (8,2),
+	awarded_reimbursements numeric (8,2),
 	constraint PK_employees primary key (employee_id)
 );
 
