@@ -2,8 +2,16 @@
     text-align: center;
 }
 
+.card-header {
+    text-align: center;
+}
+
 .submitDiv {
     margin-top: 3%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.form-control {
+    margin-top: 1%;
 }
