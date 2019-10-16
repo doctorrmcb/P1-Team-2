@@ -30,29 +30,30 @@
                         </button>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                <input type="text" placeholder="Name"/>
-                                <input type="text" placeholder="Employee ID"/>
-                                <input type="text" id="addressInput" placeholder="Address"/>        
-                                <input type="text" placeholder="Email"/>
-                                <input type="text" placeholder="Phone"/>
-                                <input type="text" placeholder="Manager Name"/>
-                                <input type="text" placeholder="Department"/>            
+                                <input type="text" placeholder="Name" />
+                                <input type="text" placeholder="Employee ID" />
+                                <input type="text" id="addressInput" placeholder="Address" />
+                                <input type="text" placeholder="Email" />
+                                <input type="text" placeholder="Phone" />
+                                <input type="text" placeholder="Manager Name" />
+                                <input type="text" placeholder="Department" />
                                 <input type="text" placeholder="Username" />
                                 <input type="text" placeholder="Password" />
                                 <button id="registerButton">register</button>
                             </div>
                         </div>
-                        
+
                         <!-- <input type="text" placeholder="email" /> -->
                         <!-- <button>Create</button> -->
                         <p class="message" id="registerMessage">Already Registered? <a href="#">Login</a>
                         </p>
                     </form>
 
-                    <form class="login-form">
-                        <input type="text" placeholder="Username"/>
-                        <input type="password" placeholder="Password"/>
-                        <button>login</button>
+
+                    <form action="login" method="POST" class="login-form">
+                        <input type="text" name="username" placeholder="Enter username here" />
+                        <input type="password" name="password" placeholder="enter password here" />
+                        <button type="submit">Login</button>
                         <p class="message">Not Registered? <a href="#">Register</a>
                         </p>
                     </form>
