@@ -41,7 +41,8 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		User user = userService.loginUser(username, password);
 		if (user != null) {
-			response.getWriter().write("Welcome to you homepage " + user.getFullName());
+			//response.getWriter().write("Welcome to you homepage " + user.getFullName());
+			response.sendRedirect("central_menu_employee.html");
 		} else {
 			response.getWriter().write("Sorry, but you were not able to login correctly :(");
 		}
