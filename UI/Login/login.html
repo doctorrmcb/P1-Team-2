@@ -20,38 +20,58 @@
     </header>
     <footer>
 
-        <div class="login-page">
-            <div class="form">
-                <form class="register-form">
-                    <input type="text" placeholder="user name" />
-                    <input type="text" placeholder="password" />
-                    <input type="text" placeholder="email" />
-                    <button>Create</button>
-                    <p class="message">Already Registered? <a href="#">Login</a>
-                    </p>
-                </form>
+        <div class="accordion" id="accordionExample">
+            <!-- Start of Section 1 -->
+            <div class="login-page">
+                <div class="form">
+                    <form class="register-form">
+                        <button class="collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Please Fill This Form Out
+                        </button>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <input type="text" placeholder="Name"/>
+                                <input type="text" placeholder="Employee ID"/>
+                                <input type="text" id="addressInput" placeholder="Address"/>        
+                                <input type="text" placeholder="Email"/>
+                                <input type="text" placeholder="Phone"/>
+                                <input type="text" placeholder="Manager Name"/>
+                                <input type="text" placeholder="Department"/>            
+                                <input type="text" placeholder="Username" />
+                                <input type="text" placeholder="Password" />
+                                <button id="registerButton">register</button>
+                            </div>
+                        </div>
+                        
+                        <!-- <input type="text" placeholder="email" /> -->
+                        <!-- <button>Create</button> -->
+                        <p class="message" id="registerMessage">Already Registered? <a href="#">Login</a>
+                        </p>
+                    </form>
 
-                <form class="login-form">
-                    <input type="text" placeholder="user name" />
-                    <input type="password" placeholder="password" />
-                    <button>login</button>
-                    <p class="message">Not Registered? <a href="#">Register</a>
-                    </p>
-                </form>
+                    <form class="login-form">
+                        <input type="text" placeholder="Username"/>
+                        <input type="password" placeholder="Password"/>
+                        <button>login</button>
+                        <p class="message">Not Registered? <a href="#">Register</a>
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
-
-        <script>
-            $('.message a').click(
-                function() {
-                    $('form').animate({
-                        height: "toggle",
-                        opacity: "toggle"
-                    }, "slow");
-                }
-            );
-        </script>
     </footer>
+    <script>
+        $('.message a').click(
+            function() {
+                $('form').animate({
+                    height: "toggle",
+                    opacity: "toggle"
+                }, "slow");
+            }
+        );
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
