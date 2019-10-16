@@ -19,13 +19,19 @@ public class Employee {
 		this.password = password;
 	}
 
+	public Employee(int employeeId, int reimbursementId) {
+		super();
+		this.employeeId = employeeId;
+		this.reimbursementId = reimbursementId;
+	}
+
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int employeeId, int reimbursementId, String username, String password, String name,
-			String address, String email, String phone, int reportsTo, String title, double awardedReimbursements) {
+	public Employee(int employeeId, int reimbursementId, String username, String password, String name, String address,
+			String email, String phone, int reportsTo, String title, double awardedReimbursements) {
 		super();
 		this.employeeId = employeeId;
 		this.reimbursementId = reimbursementId;
@@ -205,9 +211,9 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", reimbursementId=" + reimbursementId + ", username="
-				+ username + ", password=" + password + ", name=" + name + ", address=" + address + ", email=" + email
-				+ ", phone=" + phone + ", reportsTo=" + reportsTo + ", title=" + title + ", awardedReimbursements="
+		return "Employee [employeeId=" + employeeId + ", reimbursementId=" + reimbursementId + ", username=" + username
+				+ ", password=" + password + ", name=" + name + ", address=" + address + ", email=" + email + ", phone="
+				+ phone + ", reportsTo=" + reportsTo + ", title=" + title + ", awardedReimbursements="
 				+ awardedReimbursements + "]";
 	}
 

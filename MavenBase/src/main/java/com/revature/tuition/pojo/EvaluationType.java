@@ -20,6 +20,12 @@ public class EvaluationType {
 		this.presentation = presentation;
 	}
 
+	public EvaluationType(int evaluationTypeId, int reimbursementId) {
+		super();
+		this.evaluationTypeId = evaluationTypeId;
+		this.reimbursementId = reimbursementId;
+	}
+
 	public EvaluationType() {
 		super();
 		// TODO Auto-generated constructor stub

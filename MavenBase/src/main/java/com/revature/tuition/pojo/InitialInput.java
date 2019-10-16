@@ -37,6 +37,12 @@ public class InitialInput {
 		this.timeOutEnd = timeOutEnd;
 	}
 
+	public InitialInput(int initialInputId, int reimbursementId) {
+		super();
+		this.initialInputId = initialInputId;
+		this.reimbursementId = reimbursementId;
+	}
+
 	public InitialInput() {
 		super();
 		// TODO Auto-generated constructor stub

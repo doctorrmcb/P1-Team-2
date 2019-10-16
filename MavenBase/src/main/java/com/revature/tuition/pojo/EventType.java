@@ -15,6 +15,12 @@ public class EventType {
 		this.coverage = coverage;
 	}
 
+	public EventType(int eventTypeId, int reimbursementId) {
+		super();
+		this.eventTypeId = eventTypeId;
+		this.reimbursementId = reimbursementId;
+	}
+
 	public EventType() {
 		super();
 		// TODO Auto-generated constructor stub

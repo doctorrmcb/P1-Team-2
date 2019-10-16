@@ -19,6 +19,12 @@ public class Evaluation {
 		this.approval = approval;
 	}
 
+	public Evaluation(int evaluationId, int reimbursementId) {
+		super();
+		this.evaluationId = evaluationId;
+		this.reimbursementId = reimbursementId;
+	}
+
 	public Evaluation() {
 		super();
 		// TODO Auto-generated constructor stub

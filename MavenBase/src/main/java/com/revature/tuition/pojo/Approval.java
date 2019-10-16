@@ -18,9 +18,14 @@ public class Approval {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Approval(int approvalId, int reimbursementId, boolean dirSupApp, boolean deptHeadApp,
-			boolean benCoApp, LocalDateTime approvalTime, String benCoAlterInfo, String additionalInfo,
-			String denialInfo) {
+	public Approval(int approvalId, int reimbursementId) {
+		super();
+		this.approvalId = approvalId;
+		this.reimbursementId = reimbursementId;
+	}
+
+	public Approval(int approvalId, int reimbursementId, boolean dirSupApp, boolean deptHeadApp, boolean benCoApp,
+			LocalDateTime approvalTime, String benCoAlterInfo, String additionalInfo, String denialInfo) {
 		super();
 		this.approvalId = approvalId;
 		this.reimbursementId = reimbursementId;
