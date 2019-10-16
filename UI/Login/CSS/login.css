@@ -1,38 +1,113 @@
-header, footer {
+header,
+footer {
     text-align: center;
 }
 
 header {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bolder;
+    font-family: "Roboto", sans-serif;
     font-size: 32pt;
-    /* text-shadow: black 0px 0px 5px; */
-}
-
-.card {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
 }
 
 .jumbotron {
-    color: #130B2B;
+    color: #f2f2f2;
     background-color: #4114D2;
 }
 
-.card {
-    color: #1D0371;
-    background-color: #7F7A8F;
-}
-
-.form-group {
-    font-weight: 500;
-    font-size: 14pt;
-}
-
-.btn {
-    background-color: #1D0371;
-}
 body {
     background-color: #140150;
+}
+
+.login-page {
+    margin: auto;
+}
+
+.form {
+    text-align: center;
+}
+
+.login-form input {
+    font-family: "Roboto", sans-serif;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    padding: 4.5%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    font-size: 20px;
+}
+
+.register-form input {
+    font-family: "Roboto", sans-serif;
+    background: #f2f2f2;
+    width: 45%;
+    border: 0;
+    padding: 0.5%;
+    margin: 0.1%;
+    font-size: 20px;
+}
+
+#addressInput {
+    width: 90.5%;
+}
+
+.login-form {
+    max-width: 30%;
+    margin: auto;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 0.5%;
+    background: rgba(7, 40, 195, 0.8);
+}
+
+/* This section changes the button style*/
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 4%;
+    margin: 0.2%;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/* This section changes the color of the buttons when you hover or click them.*/
+.form button:hover,
+.form button:active {
+    background: #43A047;
+}
+
+/* This section controls the register/login message.*/
+.message {
+    margin-top: 4%;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+/* This section makes the register form not display when you first load the page.*/
+.register-form {
+    display: none;
+}
+
+.register-form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 1%;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+#registerMessage{
+    margin-top: 1%;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+#registerButton{
+    width: 90.5%;
 }
