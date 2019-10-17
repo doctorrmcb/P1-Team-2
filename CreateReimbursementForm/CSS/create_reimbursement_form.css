@@ -1,0 +1,42 @@
+.jumbotron {
+    text-align: center;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.submitDiv {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 100%;
+}
+
+td {
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
