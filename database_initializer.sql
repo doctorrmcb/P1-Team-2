@@ -1,5 +1,5 @@
 create table p1_test.employees (
-	employee_id int4,
+	employee_id serial,
 	reimbursement_id int4,
 	username varchar(40),
 	password varchar(40),
@@ -14,7 +14,7 @@ create table p1_test.employees (
 );
 
 create table p1_test.reimbursements (
-	reimbursement_id int4,
+	reimbursement_id serial,
 	employee_id int4,
 	approval_id int4,
 	initial_input_id int4,
@@ -24,7 +24,7 @@ create table p1_test.reimbursements (
 );
 
 create table p1_test.approvals (
-	approval_id int4,
+	approval_id serial,
 	reimbursement_id int4,
 	dir_sup_app bool,
 	dept_head_app bool,
@@ -39,7 +39,7 @@ create table p1_test.approvals (
 
 create table p1_test.initial_inputs (
 	--Required section
-	initial_input_id int4,
+	initial_input_id serial,
 	reimbursement_id int4,
 	event_date timestamp,
 	location text,
@@ -56,7 +56,7 @@ create table p1_test.initial_inputs (
 );
 
 create table p1_test.evaluations (
-	evaluation_id int4,
+	evaluation_id serial,
 	reimbursement_id int4,
 	grade text,
 	presentation bytea,
@@ -65,7 +65,7 @@ create table p1_test.evaluations (
 );
 
 create table p1_test.event_types (
-	event_type_id int4,
+	event_type_id serial,
 	reimbursement_id int4,
 	type text,
 	coverage numeric (5,2),
@@ -73,7 +73,7 @@ create table p1_test.event_types (
 );
 
 create table p1_test.evaluation_types (
-	evaluation_type_id int4,
+	evaluation_type_id serial,
 	reimbursement_id int4,
 	type text,
 	scale text,
