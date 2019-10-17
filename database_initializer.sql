@@ -88,3 +88,7 @@ create table p1_test.evaluation_types (
 --drop table p1_test.evaluation_types;
 --drop table p1_test.evaluations;
 --drop table p1_test.reimbursements;
+
+--Test insert section:
+insert into p1_test.employees values(1, 2, 'user', 'pass', 'testName', 'testAddress', 'testEmail', 'testPhone', 2, 'testTitle', 50);
+delete from p1_test.employees where employee_id = 1;

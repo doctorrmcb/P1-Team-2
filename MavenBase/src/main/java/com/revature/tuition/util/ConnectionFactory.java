@@ -10,13 +10,23 @@ import java.util.Properties;
 
 public class ConnectionFactory {
 
+	static{
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+	
 	private static String url;
 	
 	private static String user;
 	
 	private static String password;
 	
-	private static final String PROPERTIES_FILE = "src/main/resources/database.properties";
+	private static final String PROJECT_ROOT_DIRECTORY = "C:\\Users\\Michael\\Documents\\P1-Team-2\\MavenBase\\src\\main\\webapp";
+	
+	private static final String PROPERTIES_FILE = PROJECT_ROOT_DIRECTORY + "\\database.properties";
 	
 	private static ConnectionFactory connectionFactory;
 	
@@ -49,6 +59,7 @@ public class ConnectionFactory {
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			System.out.println(PROPERTIES_FILE);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
