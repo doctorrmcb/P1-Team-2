@@ -52,7 +52,7 @@ create table p1_test.initial_inputs (
 	approval_attachment bytea,
 	time_out_start timestamp,
 	time_out_end timestamp,
-	constraint PK_approvals primary key (initial_input_id)
+	constraint PK_initial_inputs primary key (initial_input_id)
 );
 
 create table p1_test.evaluations (
@@ -69,7 +69,7 @@ create table p1_test.event_types (
 	reimbursement_id int4,
 	type text,
 	coverage numeric (5,2),
-	constraint PK_approvals primary key (event_type_id)
+	constraint PK_event_types primary key (event_type_id)
 );
 
 create table p1_test.evaluation_types (
@@ -81,3 +81,10 @@ create table p1_test.evaluation_types (
 	presentation bool,
 	constraint PK_evaluation_types primary key (evaluation_type_id)
 );
+
+--Drop tables section:
+--drop table p1_test.employees;
+--drop table p1_test.approvals;
+--drop table p1_test.evaluation_types;
+--drop table p1_test.evaluations;
+--drop table p1_test.reimbursements;
