@@ -15,8 +15,8 @@
         <div class="jumbotron">
             <h1 class="display-4">Create Reimbursement Form</h1>
         </div>
-
     </header>
+
     <footer>
         <div class="accordion" id="accordionExample">
 
@@ -34,9 +34,9 @@
                     <div class="card-body">
 
                         <form>
+
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-
                                     <input type="date" id="start" name="trip-start" value="2018-07-22" min="2020-01-01" max="2019-12-01" class="form-control" placeholder="Start Date">
                                 </div>
                                 <div class="form-group col-md-3">
@@ -47,37 +47,36 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="c1" placeholder="Cost" />
-
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <input type="text" class="form-control" id="inputText" placeholder="Location">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="inputText" placeholder="Event Description">
                             </div>
+
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="inputText" placeholder="Justification">
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <select id="inputState" class="form-control">
-                                          <option value="" disabled selected>Choose a type</option>
-                                          <option value="1">University Course</option>
-                                          <option value="2">Seminar</option>
-                                          <option value="3">Preparation class certification</option>
-                                          <option value="4">Certification</option>
-                                          <option value="5">Technical Training</option>
-                                          <option value="6">Other</option>
-                                        </select>
-                                </div>
                                 <div class="form-group col-md-2">
                                     <input type="text" class="form-control" id="inputText" placeholder="Grade Format">
                                 </div>
+                                <div class="form-group col-md-4">
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Choose a type</option>
+                                        <option value="1">University Course</option>
+                                        <option value="2">Seminar</option>
+                                        <option value="3">Preparation class certification</option>
+                                        <option value="4">Certification</option>
+                                        <option value="5">Technical Training</option>
+                                        <option value="6">Other</option>
+                                    </select>
+                                </div>
                             </div>
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Next
-                                  </button>
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Next</button>
                         </form>
                     </div>
                 </div>
@@ -96,6 +95,7 @@
                 <!-- Start of Section 3 Dropdown -->
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body">
+
                         <form>
                             <div class="mb-3">
                                 <textarea class="form-control" id="validationTextarea" placeholder="Please type additional related to your attachment" required></textarea>
@@ -114,9 +114,7 @@
                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                             </div>
                         </form>
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Done
-                              </button>
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Done</button>
                     </div>
                 </div>
             </div>
