@@ -1,31 +1,40 @@
 package com.revature.tuition.dao;
 
-import com.revature.tuition.pojo.Approval;
+import com.revature.tuition.pojo.Employee;
 
-public class EmployeeDAOImpl implements ApprovalDAO {
+public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
-	public boolean createApproval(Approval approval) {
+	public boolean createEmployee(Employee employee) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Approval readApproval(int approvalId) {
+	public Employee readEmployeeById(int employeeId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean updateApproval(Approval approval) {
+	public boolean updateEmployee(Employee employee) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteApproval(int approvalId) {
+	public boolean deleteEmployee(int employeeId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public Employee readEmployeeByUsername(String username) {
+		// TODO Auto-generated method stub
+		return new Employee("user", "pass");
+		//return null;
+	}
+
+	
 
 }
