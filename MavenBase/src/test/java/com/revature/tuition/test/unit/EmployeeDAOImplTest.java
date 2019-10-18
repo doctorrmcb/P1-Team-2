@@ -40,6 +40,10 @@ public class EmployeeDAOImplTest {
 			.prepareStatement("select * from p1_test.employees where employee_Id = ?;");
 
 	@Spy
+	PreparedStatement stmtDelete = ConnectionFactory.getConnection()
+			.prepareStatement("delete from p1_test.employees where employee_id = ?;");
+
+	@Spy
 	SQLException exceptionSpy = new SQLException();
 
 	@BeforeClass
@@ -110,7 +114,7 @@ public class EmployeeDAOImplTest {
 		String sql = "select * from p1_test.employees where employee_Id = ?;";
 		Employee resultEmployee = null;
 		try {
-			when (connection.prepareStatement(sql)).thenThrow(exceptionSpy);
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
 			employeeDAO.setConn(connection);
 			assertEquals(resultEmployee, employeeDAO.readEmployeeById(1));
 			Mockito.verify(exceptionSpy).printStackTrace();
@@ -136,7 +140,15 @@ public class EmployeeDAOImplTest {
 
 	@Test
 	public void deleteEmployeeFailTest() {
-		fail("Not yet implemented");
+		String sql = "delete from p1_test.employees where employee_id = ?;";
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
+			employeeDAO.setConn(connection);
+			assertFalse(employeeDAO.deleteEmployee(1));
+			Mockito.verify(exceptionSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
