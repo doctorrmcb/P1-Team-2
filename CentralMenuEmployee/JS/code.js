@@ -6,6 +6,10 @@ function goToViewManageFromMenu() {
     location.replace(href = 'ViewEditDeleteReimbursementForm/view_manage_reimbursement.html');
 };
 
+function goTogUpdateForm() {
+    location.replace(href = '../UpdatePendingReimbursementForm/Update_Pending_Form.html');
+};
+
 function LogoutFromMenu() {
     location.replace(href = 'Login/login.html');
 };
