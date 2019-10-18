@@ -1,6 +1,9 @@
 package com.revature.tuition.dao;
 
+import java.sql.Connection;
+
 import com.revature.tuition.pojo.Approval;
+import com.revature.tuition.util.ConnectionFactory;
 
 public class ApprovalDAOImpl implements ApprovalDAO {
 
@@ -28,4 +31,10 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 		return false;
 	}
 
+	public void setConn(Connection connection) {
+		// TODO Auto-generated method stub
+		this.connection = connection;
+	}
+
+	private Connection connection = ConnectionFactory.getConnection();
 }

@@ -75,7 +75,30 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 	public boolean updateEmployee(Employee employee) {
 		// TODO Auto-generated method stub
-		return false;
+		info("updateEmployee method started. employee: " + employee);
+		String sql = "update p1_test.employees set reimbursement_id = ?, username = ?, password = ?, name = ?, address = ?, email = ?, phone = ?, reports_to = ?, title = ?, awarded_reimbursements = ? where employee_id = ?;";
+		PreparedStatement stmt;
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, employee.getreimbursementId());
+			stmt.setString(2, employee.getUsername());
+			stmt.setString(3, employee.getPassword());
+			stmt.setString(4, employee.getName());
+			stmt.setString(5, employee.getAddress());
+			stmt.setString(6, employee.getEmail());
+			stmt.setString(7, employee.getPhone());
+			stmt.setInt(8, employee.getreportsTo());
+			stmt.setString(9, employee.getTitle());
+			stmt.setDouble(10, employee.getawardedReimbursements());
+			stmt.setInt(11, employee.getemployeeId());
+			stmt.executeUpdate();
+			info("updateEmployee method ending. stmt: " + stmt);
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			error("updateEmployee method failed.");
+			return false;
+		}
 	}
 
 	@Override

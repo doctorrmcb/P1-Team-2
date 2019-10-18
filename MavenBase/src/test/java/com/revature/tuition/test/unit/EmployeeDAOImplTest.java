@@ -44,6 +44,10 @@ public class EmployeeDAOImplTest {
 			.prepareStatement("delete from p1_test.employees where employee_id = ?;");
 
 	@Spy
+	PreparedStatement stmtUpdate = ConnectionFactory.getConnection().prepareStatement(
+			"update p1_test.employees set reimbursement_id = ?, username = ?, password = ?, name = ?, address = ?, email = ?, phone = ?, reports_to = ?, title = ?, awarded_reimbursements = ? where employee_id = ?;");
+
+	@Spy
 	SQLException exceptionSpy = new SQLException();
 
 	@BeforeClass
@@ -125,12 +129,34 @@ public class EmployeeDAOImplTest {
 
 	@Test
 	public void updateEmployeeSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "update p1_test.employees set reimbursement_id = ?, username = ?, password = ?, name = ?, address = ?, email = ?, phone = ?, reports_to = ?, title = ?, awarded_reimbursements = ? where employee_id = ?;";
+		Employee employee = new Employee(1, 2, "user", "pass", "testName", "testAddress", "testEmail",
+				"testPhone", 2, "testTitle", 100);
+		boolean result = true;
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtUpdate);
+			employeeDAO.setConn(connection);
+			assertEquals(result, employeeDAO.updateEmployee(employee));
+			Mockito.verify(stmtUpdate).executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void updateEmployeeFailTest() {
-		fail("Not yet implemented");
+		String sql = "update p1_test.employees set reimbursement_id = ?, username = ?, password = ?, name = ?, address = ?, email = ?, phone = ?, reports_to = ?, title = ?, awarded_reimbursements = ? where employee_id = ?;";
+		Employee employee = new Employee(1, 2, "user", "pass", "testName", "testAddress", "testEmail",
+				"testPhone", 2, "testTitle", 100);
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
+			employeeDAO.setConn(connection);
+			assertFalse(employeeDAO.updateEmployee(employee));
+			Mockito.verify(exceptionSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
