@@ -8,6 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='css/create_reimbursement_form.css'>
+    <script src='../JS/code.js'></script>
 </head>
 
 <body>
@@ -123,10 +124,10 @@
         <!-- Start of Navigation Button Section -->
         <div class="row" id="submitRow">
             <div class="submitDiv">
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="button" onclick="goFromPageToMenu()" class="btn btn-primary">Main Menu</button>
                 <button type="button" class="btn btn-secondary">Save</button>
-                <button type="button" class="btn btn-secondary">Main Menu</button>
-                <button type="button" class="btn btn-success">Exit</button>
+                <button type="button" class="btn btn-secondary">Submit</button>
+                <button type="button" onclick="LogoutFromCreationForm() " class="btn btn-success">Exit</button>
             </div>
         </div>
     </footer>
