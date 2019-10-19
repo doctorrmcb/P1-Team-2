@@ -59,6 +59,7 @@ create table p1_test.evaluations (
 	evaluation_id serial,
 	reimbursement_id int4,
 	grade text,
+	file_path text,
 	presentation bytea,
 	approval bool,
 	constraint PK_evaluations primary key (evaluation_id)

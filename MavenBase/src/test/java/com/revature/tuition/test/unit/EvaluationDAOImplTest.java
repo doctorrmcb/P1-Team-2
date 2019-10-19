@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -28,10 +30,10 @@ public class EvaluationDAOImplTest {
 
 	@Mock
 	Connection connection;
-
+	
 	@Spy
 	EvaluationDAOImpl evaluationDAO = new EvaluationDAOImpl();
-	
+
 	/*
 	 * evaluation_id serial, reimbursement_id int4, grade text, presentation bytea,
 	 * approval bool,
@@ -39,7 +41,7 @@ public class EvaluationDAOImplTest {
 
 	@Spy
 	PreparedStatement stmtCreate = ConnectionFactory.getConnection()
-			.prepareStatement("insert into p1_test.evaluations values(?, ?, ?, ?, ?);");
+			.prepareStatement("insert into p1_test.evaluations values(?, ?, ?, ?, ?, ?);");
 
 	@Spy
 	PreparedStatement stmtRead = ConnectionFactory.getConnection()
@@ -47,12 +49,15 @@ public class EvaluationDAOImplTest {
 
 	@Spy
 	PreparedStatement stmtUpdate = ConnectionFactory.getConnection().prepareStatement(
-			"update p1_test.evaluations set reimbursement_id = ?, grade = ?, presentation = ?, approval = ? where evaluation_id = ?;");
+			"update p1_test.evaluations set reimbursement_id = ?, grade = ?, file_path = ?, presentation = ?, approval = ? where evaluation_id = ?;");
 
 	@Spy
 	PreparedStatement stmtDelete = ConnectionFactory.getConnection()
 			.prepareStatement("delete from p1_test.evaluations where evaluation_id = ?;");
 
+	@Spy
+	SQLException exceptionSQLSpy = new SQLException();
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -73,13 +78,13 @@ public class EvaluationDAOImplTest {
 	 * evaluation_id serial, reimbursement_id int4, grade text, presentation bytea,
 	 * approval bool,
 	 */
-	
+
 	@Test
 	public void createEvaluationSuccessTest() {
-		String sql = "insert into p1_test.evaluations values(?, ?, ?, ?, ?);";
-		File testFile = new File("test.txt");
-		Evaluation evaluation = new Evaluation(1, 2, "testGrade", testFile, true);
-		
+		String sql = "insert into p1_test.evaluations values(?, ?, ?, ?, ?, ?);";
+		File testFile = new File(".//src//test//resources//testFile.txt");
+		Evaluation evaluation = new Evaluation(1, 2, "testGrade", ".//src//test//resources//testFile.txt", testFile, true);
+
 		try {
 			when(connection.prepareStatement(sql)).thenReturn(stmtCreate);
 			evaluationDAO.setConnection(connection);
@@ -91,43 +96,108 @@ public class EvaluationDAOImplTest {
 	}
 
 	@Test
-	public void createEvaluationFailSQLTest() {
-		fail("Not yet implemented");
-	}
+	public void createEvaluationFailTest() {
+		String sql = "insert into p1_test.evaluations values(?, ?, ?, ?, ?, ?);";
+		File testFile = new File("");
+		Evaluation evaluation = new Evaluation(1, 2, "testGrade", ".//src//test//resources//testFile.txt", testFile, true);
 
-	@Test
-	public void createEvaluationFailFileTest() {
-		fail("Not yet implemented");
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSQLSpy);
+			evaluationDAO.setConnection(connection);
+			assertFalse(evaluationDAO.createEvaluation(evaluation));
+			Mockito.verify(exceptionSQLSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
 	public void readEvaluationSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "select * from p1_test.evaluations where evaluation_id = ?;";
+		int evaluationId = 1;
+		File testFile = new File(".//src//test//resources//testFile.txt");
+		Evaluation expectedEvaluation = new Evaluation(1, 2, "testGrade", ".//src//test//resources//testFile.txt", testFile, true);
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtRead);
+			evaluationDAO.setConnection(connection);
+			assertEquals(expectedEvaluation, evaluationDAO.readEvaluation(evaluationId));
+			Mockito.verify(stmtRead).executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void readEvaluationFailTest() {
-		fail("Not yet implemented");
+		String sql = "select * from p1_test.evaluations where evaluation_id = ?;";
+		int evaluationId = 1;
+		Evaluation expectedEvaluation = null;
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSQLSpy);
+			evaluationDAO.setConnection(connection);
+			assertEquals(expectedEvaluation, evaluationDAO.readEvaluation(evaluationId));
+			Mockito.verify(exceptionSQLSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void updateEvaluationSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "update p1_test.evaluations set reimbursement_id = ?, grade = ?, file_path = ?, presentation = ?, approval = ? where evaluation_id = ?;";
+		File testFile = new File(".//src//test//resources//testFile.txt");
+		Evaluation evaluation = new Evaluation(1, 3, "testGrade", ".//src//test//resources//testFile.txt", testFile, true);
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtUpdate);
+			evaluationDAO.setConnection(connection);
+			assertTrue(evaluationDAO.updateEvaluation(evaluation));
+			Mockito.verify(stmtUpdate).executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void updateEvaluationFailTest() {
-		fail("Not yet implemented");
+		String sql = "update p1_test.evaluations set reimbursement_id = ?, grade = ?, file_path = ?, presentation = ?, approval = ? where evaluation_id = ?;";
+		File testFile = new File(".//src//test//resources//testFile.txt");
+		Evaluation evaluation = new Evaluation(1, 3, "testGrade", ".//src//test//resources//testFile.txt", testFile, true);
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSQLSpy);
+			evaluationDAO.setConnection(connection);
+			assertFalse(evaluationDAO.updateEvaluation(evaluation));
+			Mockito.verify(exceptionSQLSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void deleteEvaluationSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "delete from p1_test.evaluations where evaluation_id = ?;";
+		int evaluationId = 1;
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtDelete);
+			evaluationDAO.setConnection(connection);
+			assertTrue(evaluationDAO.deleteEvaluation(evaluationId));
+			Mockito.verify(stmtDelete).executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void deleteEvaluationFailTest() {
-		fail("Not yet implemented");
+		String sql = "delete from p1_test.evaluations where evaluation_id = ?;";
+		int evaluationId = 1;
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSQLSpy);
+			evaluationDAO.setConnection(connection);
+			assertFalse(evaluationDAO.deleteEvaluation(evaluationId));
+			Mockito.verify(exceptionSQLSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public EvaluationDAOImplTest() throws SQLException {

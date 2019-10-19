@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import static com.revature.tuition.util.LoggerUtil.*;
 
 public class ConnectionFactory {
 
@@ -76,7 +77,7 @@ public class ConnectionFactory {
 			connection = DriverManager.getConnection(url, user, password);
 			
 		} catch (SQLException e) {
-			System.out.println("Failed to create connection");
+			error("Failed to create connection");
 			e.printStackTrace();
 		}
 		

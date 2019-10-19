@@ -210,3 +210,39 @@
 2019-10-18 23:41:09 INFO  root:26 - updateApproval method started. Approval: Approval [approvalId=1, reimbursementId=3, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
 2019-10-18 23:41:09 INFO  root:26 - updateApproval method ending. stmt: update p1_test.approvals set reimbursement_id = 3, dir_sup_app = 'FALSE', dept_head_app = 'FALSE', ben_co_app = 'FALSE', approval_time = '2015-10-18 02:47:40-04', ben_co_alter_info = 'bencoTestAlterInfo', additional_info = 'testAdditionalInfo', denial_info = 'testDenialInfo' where approval_id = 1
 2019-10-19 13:24:57 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=test.txt, approval=true]
+2019-10-19 13:30:49 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 13:36:37 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 13:36:37 ERROR root:14 - createEvaluation method failed. Failed due to SQLException.
+2019-10-19 13:40:24 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 13:40:24 ERROR root:14 - createEvaluation method failed. Failed due to SQLException.
+2019-10-19 13:52:41 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=, approval=true]
+2019-10-19 13:53:33 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=, approval=true]
+2019-10-19 13:53:33 ERROR root:14 - createEvaluation method failed. Failed due to SQLException.
+2019-10-19 13:55:16 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=, approval=true]
+2019-10-19 13:55:16 ERROR root:14 - createEvaluation method failed. Failed due to FileNotFoundException.
+2019-10-19 13:57:34 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=, approval=true]
+2019-10-19 13:57:34 ERROR root:14 - createEvaluation method failed. Failed due to SQLException.
+2019-10-19 13:57:47 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 13:57:48 ERROR root:14 - createEvaluation method failed. Failed due to SQLException.
+2019-10-19 14:44:37 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 14:44:37 INFO  root:26 - createEvaluation method ending. stmt: insert into p1_test.evaluations values(1, 2, 'testGrade', './/src//test//resources//testFile.txt', ?, 'TRUE')
+2019-10-19 14:44:46 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=, approval=true]
+2019-10-19 14:44:46 ERROR root:14 - createEvaluation method failed.
+2019-10-19 15:07:03 INFO  root:26 - createEvaluation method started. evaluationId: 1
+2019-10-19 15:07:03 INFO  root:26 - readEvaluation method ending. stmt: select * from p1_test.evaluations where evaluation_id = 1
+2019-10-19 16:29:55 INFO  root:26 - createEvaluation method started. evaluationId: 1
+2019-10-19 16:29:55 ERROR root:14 - readEvaluation method failed.
+2019-10-19 16:38:36 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 16:38:36 ERROR root:14 - createEvaluation method failed.
+2019-10-19 16:38:45 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 16:38:45 ERROR root:14 - createEvaluation method failed.
+2019-10-19 16:40:09 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 16:40:09 ERROR root:14 - createEvaluation method failed.
+2019-10-19 16:40:21 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 16:40:21 INFO  root:26 - createEvaluation method ending. stmt: update p1_test.evaluations set reimbursement_id = 3, grade = 'testGrade', file_path = './/src//test//resources//testFile.txt', presentation = ?, approval = 'TRUE' where evaluation_id = 1
+2019-10-19 16:41:01 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 16:41:01 INFO  root:26 - createEvaluation method ending. stmt: update p1_test.evaluations set reimbursement_id = 3, grade = 'testGrade', file_path = './/src//test//resources//testFile.txt', presentation = ?, approval = 'TRUE' where evaluation_id = 1
+2019-10-19 16:53:08 INFO  root:26 - deleteEvaluation method starting. evaluationId: 1
+2019-10-19 16:53:08 ERROR root:14 - deleteEvaluation method failed.
+2019-10-19 16:53:17 INFO  root:26 - deleteEvaluation method starting. evaluationId: 1
+2019-10-19 16:53:17 INFO  root:26 - deleteEvaluation method ending. stmt: delete from p1_test.evaluations where evaluation_id = 1
