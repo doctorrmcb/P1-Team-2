@@ -246,3 +246,23 @@
 2019-10-19 16:53:08 ERROR root:14 - deleteEvaluation method failed.
 2019-10-19 16:53:17 INFO  root:26 - deleteEvaluation method starting. evaluationId: 1
 2019-10-19 16:53:17 INFO  root:26 - deleteEvaluation method ending. stmt: delete from p1_test.evaluations where evaluation_id = 1
+2019-10-19 17:23:15 INFO  root:26 - createEvaluationType method starting. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=2, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 17:23:15 ERROR root:14 - createEvaluationType method failed.
+2019-10-19 17:25:21 INFO  root:26 - createEvaluationType method starting. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=2, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 17:25:54 INFO  root:26 - createEvaluationType method starting. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=2, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 17:26:50 INFO  root:26 - createEvaluationType method starting. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=2, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 17:26:50 ERROR root:14 - createEvaluationType method failed.
+2019-10-19 17:35:45 INFO  root:26 - readEvaluationType method started. evaluationTypeId: 1
+2019-10-19 17:35:45 INFO  root:26 - readEvaluationType method ending. stmt: select * from p1_test.evaluation_types where evaluation_type_id = 1
+2019-10-19 17:36:30 INFO  root:26 - readEvaluationType method started. evaluationTypeId: 1
+2019-10-19 17:36:30 INFO  root:26 - readEvaluationType method ending. stmt: select * from p1_test.evaluation_types where evaluation_type_id = 1
+2019-10-19 17:38:36 INFO  root:26 - readEvaluationType method started. evaluationTypeId: 1
+2019-10-19 17:38:36 INFO  root:26 - readEvaluationType method failed.
+2019-10-19 17:46:56 INFO  root:26 - updateEvaluationType method started. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=3, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 17:46:56 ERROR root:14 - createEvaluationType method failed.
+2019-10-19 17:47:07 INFO  root:26 - updateEvaluationType method started. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=3, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 17:47:07 INFO  root:26 - createEvaluationType method ending. stmt: update p1_test.evaluation_types set reimbursement_id = 3, type = 'letter', scale = 'A-F', passing_grade = 'C', presentation = 'TRUE' where evaluation_type_id = 1
+2019-10-19 17:54:23 INFO  root:26 - deleteEvaluationType method started. evaluationTypeId: 1
+2019-10-19 17:54:23 ERROR root:14 - deleteEvaluationType method ending.
+2019-10-19 17:54:44 INFO  root:26 - deleteEvaluationType method started. evaluationTypeId: 1
+2019-10-19 17:54:44 INFO  root:26 - deleteEvaluationType method ending. stmt: delete from p1_test.evaluation_types where evaluation_type_id = 1
