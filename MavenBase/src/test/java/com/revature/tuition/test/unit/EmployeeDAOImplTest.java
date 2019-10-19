@@ -37,7 +37,10 @@ public class EmployeeDAOImplTest {
 
 	@Spy
 	PreparedStatement stmtRead = ConnectionFactory.getConnection()
-			.prepareStatement("select * from p1_test.employees where employee_Id = ?;");
+			.prepareStatement("select * from p1_test.employees where employee_id = ?;");
+	
+	@Spy
+	PreparedStatement stmtReadUsername = ConnectionFactory.getConnection().prepareStatement("select * from p1_test.employees where username = ?;");
 
 	@Spy
 	PreparedStatement stmtDelete = ConnectionFactory.getConnection()
@@ -161,7 +164,15 @@ public class EmployeeDAOImplTest {
 
 	@Test
 	public void deleteEmployeeSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "delete from p1_test.employees where employee_id = ?;";
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtDelete);
+			employeeDAO.setConn(connection);
+			assertFalse(employeeDAO.deleteEmployee(1));
+			Mockito.verify(stmtDelete).executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
@@ -179,12 +190,36 @@ public class EmployeeDAOImplTest {
 
 	@Test
 	public void readEmployeeByUsernameSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "select * from p1_test.employees where username = ?;";
+		Employee employee = new Employee(1, 2, "user", "pass", "testName", "testAddress", "testEmail", "testPhone", 2,
+				"testTitle", 100);
+		String username = "user";
+		
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtReadUsername);
+			employeeDAO.setConn(connection);
+			assertEquals(employee, employeeDAO.readEmployeeByUsername(username));
+			Mockito.verify(stmtReadUsername).executeQuery();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void readEmployeeByUsernameFailTest() {
-		fail("Not yet implemented");
+		String sql = "select * from p1_test.employees where username = ?;";
+		String username = "user";
+		
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
+			employeeDAO.setConn(connection);
+			assertEquals(null, employeeDAO.readEmployeeByUsername(username));
+			Mockito.verify(exceptionSpy).printStackTrace();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public EmployeeDAOImplTest() throws SQLException {
