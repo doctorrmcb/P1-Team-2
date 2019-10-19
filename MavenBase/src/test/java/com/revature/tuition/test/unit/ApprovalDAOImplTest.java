@@ -40,7 +40,7 @@ public class ApprovalDAOImplTest {
 
 	@Spy
 	PreparedStatement stmtRead = ConnectionFactory.getConnection()
-			.prepareStatement("select * from p1_test.approvals where approval_Id = ?;");
+			.prepareStatement("select * from p1_test.approvals where approval_id = ?;");
 
 	@Spy
 	PreparedStatement stmtDelete = ConnectionFactory.getConnection()
@@ -85,12 +85,33 @@ public class ApprovalDAOImplTest {
 	
 	@Test
 	public void createApprovalFailTest() {
-		fail("Not yet implemented");
+		String sql = "insert into p1_test.approvals values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		LocalDateTime testDate = LocalDateTime.of(2015, Month.OCTOBER, 18, 2, 47, 40);
+		Approval approval = new Approval(1, 2, false, false, false, testDate, "bencoTestAlterInfo", "testAdditionalInfo", "testDenialInfo");
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
+			approvalDAO.setConn(connection);
+			assertFalse(approvalDAO.createApproval(approval));
+			Mockito.verify(exceptionSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
 	public void readApprovalSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "select * from p1_test.approvals where approval_id = ?;";
+		int approvalId = 1;
+		LocalDateTime testDate = LocalDateTime.of(2015, Month.OCTOBER, 18, 2, 47, 40);
+		Approval approval = new Approval(1, 2, false, false, false, testDate, "bencoTestAlterInfo", "testAdditionalInfo", "testDenialInfo");
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtRead);
+			approvalDAO.setConn(connection);
+			assertEquals(approval, approvalDAO.readApproval(approvalId));
+			Mockito.verify(exceptionSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
