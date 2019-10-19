@@ -37,17 +37,21 @@
                         <form>
 
                             <div class="form-row">
+                                <span>  START</span>
                                 <div class="form-group col-md-3">
-                                    <input type="date" id="start" name="trip-start" value="2018-07-22" min="2020-01-01" max="2019-12-01" class="form-control" placeholder="Start Date">
+                                    <input type="date" id="dob" class="form-control" placeholder="Start Date">
                                 </div>
+                                <span>END</span>
                                 <div class="form-group col-md-3">
-                                    <input type="date" id="start" name="trip-start" value="2018-07-22" min="2020-01-01" max="2019-12-01" class="form-control" placeholder="End Date">
+                                    <input type="date" id="dob" class="form-control" placeholder="End Date">
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <input class="form-control" type="time" value="13:45:00" id="example-time-input" placeholder="Time">
+                                <span>FROM</span>
+                                <div class="form-group col-md-2">
+                                    <input class="form-control" type="time" id="example-time-input" placeholder="Start Time">
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="c1" placeholder="Cost" />
+                                <span>TO</span>
+                                <div class="form-group col-md-2">
+                                    <input class="form-control" type="time" id="example-time-input" placeholder="End Time">
                                 </div>
                             </div>
 
@@ -59,13 +63,16 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-5">
                                     <input type="text" class="form-control" id="inputText" placeholder="Justification">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <input type="text" class="form-control" id="inputText" placeholder="Grade Format">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-2">
+                                    <input type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="c1" placeholder="Cost" />
+                                </div>
+                                <div class="form-group col-md-3">
                                     <select class="form-control">
                                         <option value="" disabled selected>Choose a type</option>
                                         <option value="1">University Course</option>
@@ -124,13 +131,26 @@
         <!-- Start of Navigation Button Section -->
         <div class="row" id="submitRow">
             <div class="submitDiv">
-                <button type="button" onclick="goFromPageToMenu()" class="btn btn-primary">Main Menu</button>
-                <button type="button" class="btn btn-secondary">Save</button>
-                <button type="button" class="btn btn-secondary">Submit</button>
-                <button type="button" onclick="LogoutFromCreationForm() " class="btn btn-success">Exit</button>
+                <button type="button" onclick="goToViewManageFromMenu()" class="btn btn-primary">Main Menu</button>
+                <button type="button" onclick="goToViewForm()" class="btn btn-secondary">Save</button>
+                <button type="button" onclick="goToViewForm()" class="btn btn-secondary">Submit</button>
+                <button type="button" onclick="LogoutFromCreationForm() " class="btn btn-success">Logout</button>
             </div>
         </div>
     </footer>
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+            <img src="..." class="rounded mr-2" alt="...">
+            <strong class="mr-auto">TMRS</strong>
+            <small>1 min ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+        </div>
+        <div class="toast-body">
+            Form successfully submitted.
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
