@@ -266,3 +266,138 @@
 2019-10-19 17:54:23 ERROR root:14 - deleteEvaluationType method ending.
 2019-10-19 17:54:44 INFO  root:26 - deleteEvaluationType method started. evaluationTypeId: 1
 2019-10-19 17:54:44 INFO  root:26 - deleteEvaluationType method ending. stmt: delete from p1_test.evaluation_types where evaluation_type_id = 1
+2019-10-19 20:21:51 INFO  root:26 - deleteEmployee method started. employeeId: 1
+2019-10-19 20:21:51 ERROR root:14 - deleteEmployee method failed.
+2019-10-19 20:21:51 INFO  root:26 - updateEmployee method started. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:21:51 ERROR root:14 - updateEmployee method failed.
+2019-10-19 20:21:51 INFO  root:26 - readEmployeeByUsername method started. username: user
+2019-10-19 20:21:51 INFO  root:26 - readEmployeeByUsername method ending. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:21:51 INFO  root:26 - readEmployeeById method started. employeeId: 1
+2019-10-19 20:21:51 ERROR root:14 - readEmployeeById method failed.
+2019-10-19 20:21:51 INFO  root:26 - deleteEmployee method started. employeeId: 1
+2019-10-19 20:21:51 ERROR root:14 - deleteEmployee method failed.
+2019-10-19 20:21:51 INFO  root:26 - createEmployee method started. Employee: Employee [employeeId=5, reimbursementId=5, username=team, password=work, name=team1, address=myAddress, email=myEmail, phone=myPhone, reportsTo=5, title=softwareEngineer, awardedReimbursements=455.0]
+2019-10-19 20:21:51 ERROR root:14 - createEmployee method failed.
+2019-10-19 20:21:51 INFO  root:26 - readEmployeeByUsername method started. username: user
+2019-10-19 20:21:51 ERROR root:14 - readEmployeeByUsername method failed.
+2019-10-19 20:21:51 INFO  root:26 - createEmployee method started. Employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=50.0]
+2019-10-19 20:21:51 ERROR root:14 - createEmployee method failed.
+2019-10-19 20:21:51 INFO  root:26 - readEmployeeById method started. employeeId: 1
+2019-10-19 20:21:51 INFO  root:26 - readEmployeeById method ending. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:21:51 INFO  root:26 - updateEmployee method started. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:21:51 INFO  root:26 - updateEmployee method ending. stmt: update p1_test.employees set reimbursement_id = 2, username = 'user', password = 'pass', name = 'testName', address = 'testAddress', email = 'testEmail', phone = 'testPhone', reports_to = 2, title = 'testTitle', awarded_reimbursements = 100.0 where employee_id = 1
+2019-10-19 20:21:51 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:21:51 ERROR root:14 - createApproval method failed.
+2019-10-19 20:21:51 INFO  root:26 - readApproval method started. approvalId: 1
+2019-10-19 20:21:51 INFO  root:26 - readApproval method ending. stmt: select * from p1_test.approvals where approval_id = 1
+2019-10-19 20:21:51 INFO  root:26 - deleteApproval method started. approvalId: 1
+2019-10-19 20:21:51 ERROR root:14 - deleteApproval method failed.
+2019-10-19 20:21:51 INFO  root:26 - readApproval method started. approvalId: 1
+2019-10-19 20:21:51 ERROR root:14 - readApproval method failed.
+2019-10-19 20:21:51 INFO  root:26 - updateApproval method started. Approval: Approval [approvalId=1, reimbursementId=3, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:21:51 ERROR root:14 - updateApproval method failed.
+2019-10-19 20:21:51 INFO  root:26 - deleteApproval method started. approvalId: 1
+2019-10-19 20:21:52 INFO  root:26 - deleteApproval method ending. stmt: delete from p1_test.approvals where approval_id = 1
+2019-10-19 20:21:52 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:21:52 INFO  root:26 - createApproval method ending. stmt: insert into p1_test.approvals values(1, 2, 'FALSE', 'FALSE', 'FALSE', '2015-10-18 02:47:40-04', 'bencoTestAlterInfo', 'testAdditionalInfo', 'testDenialInfo')
+2019-10-19 20:21:52 INFO  root:26 - updateApproval method started. Approval: Approval [approvalId=1, reimbursementId=3, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:21:52 INFO  root:26 - updateApproval method ending. stmt: update p1_test.approvals set reimbursement_id = 3, dir_sup_app = 'FALSE', dept_head_app = 'FALSE', ben_co_app = 'FALSE', approval_time = '2015-10-18 02:47:40-04', ben_co_alter_info = 'bencoTestAlterInfo', additional_info = 'testAdditionalInfo', denial_info = 'testDenialInfo' where approval_id = 1
+2019-10-19 20:21:52 INFO  root:26 - deleteEvaluation method starting. evaluationId: 1
+2019-10-19 20:21:52 INFO  root:26 - deleteEvaluation method ending. stmt: delete from p1_test.evaluations where evaluation_id = 1
+2019-10-19 20:21:52 INFO  root:26 - updateEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 20:21:52 ERROR root:14 - updateEvaluation method failed.
+2019-10-19 20:21:52 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 20:21:52 INFO  root:26 - createEvaluation method ending. stmt: insert into p1_test.evaluations values(1, 2, 'testGrade', './/src//test//resources//testFile.txt', ?, 'TRUE')
+2019-10-19 20:21:52 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=, approval=true]
+2019-10-19 20:21:52 ERROR root:14 - createEvaluation method failed.
+2019-10-19 20:21:52 INFO  root:26 - deleteEvaluation method starting. evaluationId: 1
+2019-10-19 20:21:52 ERROR root:14 - deleteEvaluation method failed.
+2019-10-19 20:21:52 INFO  root:26 - updateEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 20:21:52 INFO  root:26 - updateEvaluation method ending. stmt: update p1_test.evaluations set reimbursement_id = 3, grade = 'testGrade', file_path = './/src//test//resources//testFile.txt', presentation = ?, approval = 'TRUE' where evaluation_id = 1
+2019-10-19 20:21:52 INFO  root:26 - createEvaluation method started. evaluationId: 1
+2019-10-19 20:21:52 INFO  root:26 - readEvaluation method ending. stmt: select * from p1_test.evaluations where evaluation_id = 1
+2019-10-19 20:21:52 INFO  root:26 - createEvaluation method started. evaluationId: 1
+2019-10-19 20:21:52 ERROR root:14 - readEvaluation method failed.
+2019-10-19 20:23:43 INFO  root:26 - deleteEmployee method started. employeeId: 1
+2019-10-19 20:23:43 ERROR root:14 - deleteEmployee method failed.
+2019-10-19 20:23:43 INFO  root:26 - updateEmployee method started. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:23:43 ERROR root:14 - updateEmployee method failed.
+2019-10-19 20:23:43 INFO  root:26 - readEmployeeByUsername method started. username: user
+2019-10-19 20:23:43 INFO  root:26 - readEmployeeByUsername method ending. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:23:43 INFO  root:26 - readEmployeeById method started. employeeId: 1
+2019-10-19 20:23:43 ERROR root:14 - readEmployeeById method failed.
+2019-10-19 20:23:43 INFO  root:26 - deleteEmployee method started. employeeId: 1
+2019-10-19 20:23:43 ERROR root:14 - deleteEmployee method failed.
+2019-10-19 20:23:43 INFO  root:26 - createEmployee method started. Employee: Employee [employeeId=5, reimbursementId=5, username=team, password=work, name=team1, address=myAddress, email=myEmail, phone=myPhone, reportsTo=5, title=softwareEngineer, awardedReimbursements=455.0]
+2019-10-19 20:23:43 ERROR root:14 - createEmployee method failed.
+2019-10-19 20:23:43 INFO  root:26 - readEmployeeByUsername method started. username: user
+2019-10-19 20:23:43 ERROR root:14 - readEmployeeByUsername method failed.
+2019-10-19 20:23:43 INFO  root:26 - createEmployee method started. Employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=50.0]
+2019-10-19 20:23:43 ERROR root:14 - createEmployee method failed.
+2019-10-19 20:23:43 INFO  root:26 - readEmployeeById method started. employeeId: 1
+2019-10-19 20:23:43 INFO  root:26 - readEmployeeById method ending. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:23:43 INFO  root:26 - updateEmployee method started. employee: Employee [employeeId=1, reimbursementId=2, username=user, password=pass, name=testName, address=testAddress, email=testEmail, phone=testPhone, reportsTo=2, title=testTitle, awardedReimbursements=100.0]
+2019-10-19 20:23:43 INFO  root:26 - updateEmployee method ending. stmt: update p1_test.employees set reimbursement_id = 2, username = 'user', password = 'pass', name = 'testName', address = 'testAddress', email = 'testEmail', phone = 'testPhone', reports_to = 2, title = 'testTitle', awarded_reimbursements = 100.0 where employee_id = 1
+2019-10-19 20:23:43 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:23:43 ERROR root:14 - createApproval method failed.
+2019-10-19 20:23:43 INFO  root:26 - readApproval method started. approvalId: 1
+2019-10-19 20:23:43 INFO  root:26 - readApproval method ending. stmt: select * from p1_test.approvals where approval_id = 1
+2019-10-19 20:23:43 INFO  root:26 - deleteApproval method started. approvalId: 1
+2019-10-19 20:23:43 ERROR root:14 - deleteApproval method failed.
+2019-10-19 20:23:43 INFO  root:26 - readApproval method started. approvalId: 1
+2019-10-19 20:23:43 ERROR root:14 - readApproval method failed.
+2019-10-19 20:23:43 INFO  root:26 - updateApproval method started. Approval: Approval [approvalId=1, reimbursementId=3, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:23:43 ERROR root:14 - updateApproval method failed.
+2019-10-19 20:23:43 INFO  root:26 - deleteApproval method started. approvalId: 1
+2019-10-19 20:23:43 INFO  root:26 - deleteApproval method ending. stmt: delete from p1_test.approvals where approval_id = 1
+2019-10-19 20:23:43 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:23:43 INFO  root:26 - createApproval method ending. stmt: insert into p1_test.approvals values(1, 2, 'FALSE', 'FALSE', 'FALSE', '2015-10-18 02:47:40-04', 'bencoTestAlterInfo', 'testAdditionalInfo', 'testDenialInfo')
+2019-10-19 20:23:43 INFO  root:26 - updateApproval method started. Approval: Approval [approvalId=1, reimbursementId=3, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-19 20:23:43 INFO  root:26 - updateApproval method ending. stmt: update p1_test.approvals set reimbursement_id = 3, dir_sup_app = 'FALSE', dept_head_app = 'FALSE', ben_co_app = 'FALSE', approval_time = '2015-10-18 02:47:40-04', ben_co_alter_info = 'bencoTestAlterInfo', additional_info = 'testAdditionalInfo', denial_info = 'testDenialInfo' where approval_id = 1
+2019-10-19 20:23:43 INFO  root:26 - deleteEvaluation method starting. evaluationId: 1
+2019-10-19 20:23:43 INFO  root:26 - deleteEvaluation method ending. stmt: delete from p1_test.evaluations where evaluation_id = 1
+2019-10-19 20:23:43 INFO  root:26 - updateEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 20:23:43 ERROR root:14 - updateEvaluation method failed.
+2019-10-19 20:23:43 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 20:23:43 INFO  root:26 - createEvaluation method ending. stmt: insert into p1_test.evaluations values(1, 2, 'testGrade', './/src//test//resources//testFile.txt', ?, 'TRUE')
+2019-10-19 20:23:43 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=, approval=true]
+2019-10-19 20:23:43 ERROR root:14 - createEvaluation method failed.
+2019-10-19 20:23:43 INFO  root:26 - deleteEvaluation method starting. evaluationId: 1
+2019-10-19 20:23:43 ERROR root:14 - deleteEvaluation method failed.
+2019-10-19 20:23:43 INFO  root:26 - updateEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=3, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-19 20:23:43 INFO  root:26 - updateEvaluation method ending. stmt: update p1_test.evaluations set reimbursement_id = 3, grade = 'testGrade', file_path = './/src//test//resources//testFile.txt', presentation = ?, approval = 'TRUE' where evaluation_id = 1
+2019-10-19 20:23:43 INFO  root:26 - createEvaluation method started. evaluationId: 1
+2019-10-19 20:23:43 INFO  root:26 - readEvaluation method ending. stmt: select * from p1_test.evaluations where evaluation_id = 1
+2019-10-19 20:23:43 INFO  root:26 - createEvaluation method started. evaluationId: 1
+2019-10-19 20:23:43 ERROR root:14 - readEvaluation method failed.
+2019-10-19 20:23:43 INFO  root:26 - updateEvaluationType method started. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=3, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 20:23:43 INFO  root:26 - createEvaluationType method ending. stmt: update p1_test.evaluation_types set reimbursement_id = 3, type = 'letter', scale = 'A-F', passing_grade = 'C', presentation = 'TRUE' where evaluation_type_id = 1
+2019-10-19 20:23:43 INFO  root:26 - createEvaluationType method starting. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=2, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 20:23:43 ERROR root:14 - createEvaluationType method failed.
+2019-10-19 20:23:43 INFO  root:26 - deleteEvaluationType method started. evaluationTypeId: 1
+2019-10-19 20:23:43 ERROR root:14 - deleteEvaluationType method failed.
+2019-10-19 20:23:43 INFO  root:26 - deleteEvaluationType method started. evaluationTypeId: 1
+2019-10-19 20:23:43 INFO  root:26 - deleteEvaluationType method ending. stmt: delete from p1_test.evaluation_types where evaluation_type_id = 1
+2019-10-19 20:23:43 INFO  root:26 - createEvaluationType method starting. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=2, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 20:23:43 INFO  root:26 - createEvaluationType method ending. stmt: insert into p1_test.evaluation_types values(1, 2, 'letter', 'A-F', 'C', 'TRUE')
+2019-10-19 20:23:43 INFO  root:26 - updateEvaluationType method started. evaluationType: EvaluationType [evaluationTypeId=1, reimbursementId=3, type=letter, scale=A-F, passingGrade=C, presentation=true]
+2019-10-19 20:23:43 ERROR root:14 - createEvaluationType method failed.
+2019-10-19 20:23:43 INFO  root:26 - readEvaluationType method started. evaluationTypeId: 1
+2019-10-19 20:23:43 INFO  root:26 - readEvaluationType method failed.
+2019-10-19 20:23:43 INFO  root:26 - readEvaluationType method started. evaluationTypeId: 1
+2019-10-19 20:23:43 INFO  root:26 - readEvaluationType method ending. stmt: select * from p1_test.evaluation_types where evaluation_type_id = 1
+2019-10-19 21:21:36 INFO  root:26 - createEventType method started. eventType: EventType [eventTypeId=1, reimbursementId=2, type=testType, coverage=0.7]
+2019-10-19 21:21:36 INFO  root:26 - createEventType method ending. stmt: insert into p1_test.event_types values(1, 2, 'testType', 0.7)
+2019-10-19 21:21:52 INFO  root:26 - createEventType method started. eventType: EventType [eventTypeId=1, reimbursementId=2, type=testType, coverage=0.7]
+2019-10-19 21:21:52 ERROR root:14 - createEventType method failed.
+2019-10-19 21:31:34 INFO  root:26 - readEventType method started. eventTypeId: 1
+2019-10-19 21:31:34 ERROR root:14 - readEventType method failed.
+2019-10-19 21:31:44 INFO  root:26 - readEventType method started. eventTypeId: 1
+2019-10-19 21:31:44 INFO  root:26 - readEventType method ending. stmt: select * from p1_test.event_types where event_type_id = 1
+2019-10-19 21:45:03 INFO  root:26 - updateEventType method started. eventType: EventType [eventTypeId=1, reimbursementId=3, type=testType, coverage=0.7]
+2019-10-19 21:45:12 INFO  root:26 - updateEventType method started. eventType: EventType [eventTypeId=1, reimbursementId=3, type=testType, coverage=0.7]
+2019-10-19 21:45:12 ERROR root:14 - updateEventType method failed.
+2019-10-19 21:49:03 INFO  root:26 - deleteEventType method started. eventTypeId: 1
+2019-10-19 21:49:03 ERROR root:14 - deleteEventType method failed.
+2019-10-19 21:49:11 INFO  root:26 - deleteEventType method started. eventTypeId: 1
+2019-10-19 21:49:11 INFO  root:26 - deleteEventType method ending. stmt: delete from p1_test.event_types where event_type_id = 1

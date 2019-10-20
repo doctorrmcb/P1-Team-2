@@ -48,7 +48,9 @@ create table p1_test.initial_inputs (
 	evaluation_format_id int4, 
 	justification text,
 	--Optional section
+	event_file_name text,
 	event_attachment bytea,
+	approval_file_name text,
 	approval_attachment bytea,
 	time_out_start timestamp,
 	time_out_end timestamp,
@@ -84,10 +86,12 @@ create table p1_test.evaluation_types (
 );
 
 --Drop tables section:
---drop table p1_test.employees;
 --drop table p1_test.approvals;
+--drop table p1_test.employees;
 --drop table p1_test.evaluation_types;
 --drop table p1_test.evaluations;
+--drop table p1_test.event_types;
+--drop table p1_test.initial_inputs;
 --drop table p1_test.reimbursements;
 
 --Test insert section:
