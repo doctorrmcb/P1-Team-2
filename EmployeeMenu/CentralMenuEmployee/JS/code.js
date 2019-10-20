@@ -18,8 +18,20 @@ function LogoutFromMenu() {
     location.replace(href = 'Login/login.html');
 };
 
-function LogoutFromCreationForm() {
+function logoutFromCreateForm() {
     location.replace(href = '../Login/login.html');
+};
+
+function logoutFromViewUpdateForm() {
+    location.replace(href = '../Login/login.html');
+};
+
+function logoutFromEditForm() {
+    location.replace(href = '../Login/login.html');
+};
+
+function goToViewFormFromEdit() {
+    location.replace(href = '../ViewEditDeleteReimbursementForm/view_manage_reimbursement.html');
 };
 
 function goFromPageToMenu() {
@@ -29,13 +41,6 @@ function goFromPageToMenu() {
 function deleteRow(r) {
     let i = r.parentNode.parentNode.rowIndex;
     document.getElementById("myTable").deleteRow(i);
-};
-
-function submittedForm() {
-    //alert("The reimbursement form was successfully submitted");
-    $('.toast').toast('show')
-        //$('.toast').toast(option)
-    goToUpdateForm()
 };
 
 
@@ -57,14 +62,33 @@ function closeNav() {
 
 function notification(n) {
     for (let i = 0; i < n; i++) {
-        createAnchor();
+        createAnchor("[message goes here]");
     }
 
 };
 
-
-function createAnchor() {
+function createAnchor(message) {
     var para = document.createElement("P");
-    para.innerHTML = "message";
+    para.innerHTML = message;
     document.getElementById("myCreation").appendChild(para);
 }
+
+function toastSubmitted() {
+    let x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function() { x.className = x.className.replace("show", ""); }, 3000);
+}
+
+function submittingAfterCreation() {
+    goToViewForm();
+};
+
+document.querySelectorAll('input[type=number]')
+    .forEach(e => e.oninput = () => {
+        // Always 2 digits
+        if (e.value.length >= 2) e.value = e.value.slice(0, 2);
+        // 0 on the left (doesn't work on FF)
+        if (e.value.length === 1) e.value = '0' + e.value;
+        // Avoiding letters on FF
+        if (!e.value) e.value = '00';
+    });
