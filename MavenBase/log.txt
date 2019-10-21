@@ -445,3 +445,19 @@
 2019-10-21 16:06:15 INFO  root:26 - deleteInitialInput method ending. stmt: delete from p1_test.initial_inputs where initial_input_id = 1
 2019-10-21 16:06:23 INFO  root:26 - deleteInitialInput method started. initialInputId: 1
 2019-10-21 16:06:23 ERROR root:14 - deleteInitialInput method failed.
+2019-10-21 16:33:13 INFO  root:26 - createReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=1, approvalId=1, initialInputId=1, evaluationId=1, status=testStatus]
+2019-10-21 16:33:13 INFO  root:26 - createReimbursement method ending. stmt: insert into p1_test.reimbursements values(1, 1, 1, 1, 1, 'testStatus')
+2019-10-21 16:33:21 INFO  root:26 - createReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=1, approvalId=1, initialInputId=1, evaluationId=1, status=testStatus]
+2019-10-21 16:33:21 ERROR root:14 - createReimbursement method failed.
+2019-10-21 16:37:25 INFO  root:26 - readReimbursement method started. reimbursementId: 1
+2019-10-21 16:37:25 INFO  root:26 - readReimbursement method ending. stmt: select * from p1_test.reimbursements where reimbursement_id = 1
+2019-10-21 16:37:34 INFO  root:26 - readReimbursement method started. reimbursementId: 1
+2019-10-21 16:37:34 ERROR root:14 - readReimbursement method failed.
+2019-10-21 16:40:44 INFO  root:26 - updateReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=2, approvalId=1, initialInputId=1, evaluationId=1, status=testStatus]
+2019-10-21 16:40:45 INFO  root:26 - updateReimbursement method ending. stmt: update p1_test.reimbursements set employee_id = 2, reimbursement_id = 1, initial_input_id = 1, evaluation_id = 1, status = 'testStatus' where reimbursement_id = 1
+2019-10-21 16:40:51 INFO  root:26 - updateReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=2, approvalId=1, initialInputId=1, evaluationId=1, status=testStatus]
+2019-10-21 16:40:51 ERROR root:14 - updateReimbursement method failed.
+2019-10-21 16:43:11 INFO  root:26 - deleteReimbursement method started. reimbursementId: 1
+2019-10-21 16:43:11 INFO  root:26 - deleteReimbursement method ending. stmt: delete from p1_test.reimbursements where reimbursement_id = 1
+2019-10-21 16:43:16 INFO  root:26 - deleteReimbursement method started. reimbursementId: 1
+2019-10-21 16:43:16 ERROR root:14 - deleteReimbursement method failed.
