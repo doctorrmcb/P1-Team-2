@@ -7,14 +7,17 @@ public class Evaluation {
 	private int evaluationId;
 	private int reimbursementId;
 	private String grade;
+	private String filePath;
 	private File presentation;
 	private boolean approval;
 
-	public Evaluation(int evaluationId, int reimbursementId, String grade, File presentation, boolean approval) {
+	public Evaluation(int evaluationId, int reimbursementId, String grade, String filePath, File presentation,
+			boolean approval) {
 		super();
 		this.evaluationId = evaluationId;
 		this.reimbursementId = reimbursementId;
 		this.grade = grade;
+		this.filePath = filePath;
 		this.presentation = presentation;
 		this.approval = approval;
 	}
@@ -52,6 +55,14 @@ public class Evaluation {
 
 	public void setGrade(String grade) {
 		this.grade = grade;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 
 	public File getPresentation() {

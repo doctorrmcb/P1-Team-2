@@ -14,14 +14,17 @@ public class InitialInput {
 	private int evaluationFormatId;
 	private String justification;
 	// Optional section
+	private String eventFileName;
 	private File eventAttachment;
+	private String approvalFileName;
 	private File approvalAttachment;
 	private LocalDateTime timeOutStart;
 	private LocalDateTime timeOutEnd;
 
 	public InitialInput(int initialInputId, int reimbursementId, LocalDateTime eventDate, String location,
-			String description, double cost, int evaluationFormatId, String justification, File eventAttachment,
-			File approvalAttachment, LocalDateTime timeOutStart, LocalDateTime timeOutEnd) {
+			String description, double cost, int evaluationFormatId, String justification, String eventFileName,
+			File eventAttachment, String approvalFileName, File approvalAttachment, LocalDateTime timeOutStart,
+			LocalDateTime timeOutEnd) {
 		super();
 		this.initialInputId = initialInputId;
 		this.reimbursementId = reimbursementId;
@@ -31,7 +34,9 @@ public class InitialInput {
 		this.cost = cost;
 		this.evaluationFormatId = evaluationFormatId;
 		this.justification = justification;
+		this.eventFileName = eventFileName;
 		this.eventAttachment = eventAttachment;
+		this.approvalFileName = approvalFileName;
 		this.approvalAttachment = approvalAttachment;
 		this.timeOutStart = timeOutStart;
 		this.timeOutEnd = timeOutEnd;
@@ -144,11 +149,28 @@ public class InitialInput {
 		this.timeOutEnd = timeOutEnd;
 	}
 
+	public String getEventFileName() {
+		return eventFileName;
+	}
+
+	public void setEventFileName(String eventFileName) {
+		this.eventFileName = eventFileName;
+	}
+
+	public String getApprovalFileName() {
+		return approvalFileName;
+	}
+
+	public void setApprovalFileName(String approvalFileName) {
+		this.approvalFileName = approvalFileName;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((approvalAttachment == null) ? 0 : approvalAttachment.hashCode());
+		result = prime * result + ((approvalFileName == null) ? 0 : approvalFileName.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(cost);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -156,6 +178,7 @@ public class InitialInput {
 		result = prime * result + evaluationFormatId;
 		result = prime * result + ((eventAttachment == null) ? 0 : eventAttachment.hashCode());
 		result = prime * result + ((eventDate == null) ? 0 : eventDate.hashCode());
+		result = prime * result + ((eventFileName == null) ? 0 : eventFileName.hashCode());
 		result = prime * result + initialInputId;
 		result = prime * result + ((justification == null) ? 0 : justification.hashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
@@ -179,6 +202,11 @@ public class InitialInput {
 				return false;
 		} else if (!approvalAttachment.equals(other.approvalAttachment))
 			return false;
+		if (approvalFileName == null) {
+			if (other.approvalFileName != null)
+				return false;
+		} else if (!approvalFileName.equals(other.approvalFileName))
+			return false;
 		if (Double.doubleToLongBits(cost) != Double.doubleToLongBits(other.cost))
 			return false;
 		if (description == null) {
@@ -197,6 +225,11 @@ public class InitialInput {
 			if (other.eventDate != null)
 				return false;
 		} else if (!eventDate.equals(other.eventDate))
+			return false;
+		if (eventFileName == null) {
+			if (other.eventFileName != null)
+				return false;
+		} else if (!eventFileName.equals(other.eventFileName))
 			return false;
 		if (initialInputId != other.initialInputId)
 			return false;
@@ -230,8 +263,9 @@ public class InitialInput {
 		return "InitialInput [initialInputId=" + initialInputId + ", reimbursementId=" + reimbursementId
 				+ ", eventDate=" + eventDate + ", location=" + location + ", description=" + description + ", cost="
 				+ cost + ", evaluationFormatId=" + evaluationFormatId + ", justification=" + justification
-				+ ", eventAttachment=" + eventAttachment + ", approvalAttachment=" + approvalAttachment
-				+ ", timeOutStart=" + timeOutStart + ", timeOutEnd=" + timeOutEnd + "]";
+				+ ", eventFileName=" + eventFileName + ", eventAttachment=" + eventAttachment + ", approvalFileName="
+				+ approvalFileName + ", approvalAttachment=" + approvalAttachment + ", timeOutStart=" + timeOutStart
+				+ ", timeOutEnd=" + timeOutEnd + "]";
 	}
 
 }
