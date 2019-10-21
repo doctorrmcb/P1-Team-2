@@ -27,6 +27,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.revature.tuition.dao.InitialInputDAOImpl;
+import com.revature.tuition.pojo.Evaluation;
 import com.revature.tuition.pojo.InitialInput;
 import com.revature.tuition.util.ConnectionFactory;
 
@@ -84,7 +85,7 @@ public class InitialInputDAOImplTest {
 		String sql = "insert into p1_test.initial_inputs values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		LocalDateTime testDate = LocalDateTime.of(2015, Month.OCTOBER, 18, 2, 47, 40);
 		File testFile = new File(".//src//test//resources//testFile.txt");
-		InitialInput initialInput = new InitialInput(1, 2, testDate, "testLocation", "testDescription", 1.00, 1, "testJustification", "testEventFileName", testFile, "testApprovalFileName", testFile, testDate, testDate);
+		InitialInput initialInput = new InitialInput(1, 2, testDate, "testLocation", "testDescription", 1.00, 1, "testJustification", ".//src//test//resources//testFile.txt", testFile, ".//src//test//resources//testFile.txt", testFile, testDate, testDate);
 		try {
 			when(connection.prepareStatement(sql)).thenReturn(stmtCreate);
 			initialInputDAO.setConnection(connection);
@@ -116,7 +117,7 @@ public class InitialInputDAOImplTest {
 		String sql = "select * from p1_test.initial_inputs where initial_input_id = ?;";
 		LocalDateTime testDate = LocalDateTime.of(2015, Month.OCTOBER, 18, 2, 47, 40);
 		File testFile = new File(".//src//test//resources//testFile.txt");
-		InitialInput expectedInitialInput = new InitialInput(1, 2, testDate, "testLocation", "testDescription", 1.00, 1, "testJustification", "testEventFileName", testFile, "testApprovalFileName", testFile, testDate, testDate);
+		InitialInput expectedInitialInput = new InitialInput(1, 2, testDate, "testLocation", "testDescription", 1.00, 1, "testJustification", ".//src//test//resources//testFile.txt", testFile, ".//src//test//resources//testFile.txt", testFile, testDate, testDate);
 		int initialInputId = 1;
 		try {
 			when(connection.prepareStatement(sql)).thenReturn(stmtRead);
@@ -144,22 +145,62 @@ public class InitialInputDAOImplTest {
 
 	@Test
 	public void updateInitialInputSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "update p1_test.initial_inputs set reimbursement_id = ?, event_date = ?, location = ?, description = ?, cost = ?, evaluation_format_id = ?, justification = ?, event_file_name = ?, event_attachment = ?, approval_file_name = ?, approval_attachment = ?, time_out_start = ?, time_out_end = ? where initial_input_id = ?;";
+		LocalDateTime testDate = LocalDateTime.of(2015, Month.OCTOBER, 18, 2, 47, 40);
+		File testFile = new File(".//src//test//resources//testFile.txt");
+		InitialInput initialInput = new InitialInput(1, 3, testDate, "testLocation", "testDescription", 1.00, 1, "testJustification", "testEventFileName", testFile, "testApprovalFileName", testFile, testDate, testDate);
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtUpdate);
+			initialInputDAO.setConnection(connection);
+			assertTrue(initialInputDAO.updateInitialInput(initialInput));
+			Mockito.verify(stmtUpdate).executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void updateInitialInputFailTest() {
-		fail("Not yet implemented");
+		String sql = "update p1_test.initial_inputs set reimbursement_id = ?, event_date = ?, location = ?, description = ?, cost = ?, evaluation_format_id = ?, justification = ?, event_file_name = ?, event_attachment = ?, approval_file_name = ?, approval_attachment = ?, time_out_start = ?, time_out_end = ? where initial_input_id = ?;";
+		LocalDateTime testDate = LocalDateTime.of(2015, Month.OCTOBER, 18, 2, 47, 40);
+		File testFile = new File(".//src//test//resources//testFile.txt");
+		InitialInput initialInput = new InitialInput(1, 3, testDate, "testLocation", "testDescription", 1.00, 1, "testJustification", "testEventFileName", testFile, "testApprovalFileName", testFile, testDate, testDate);
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
+			initialInputDAO.setConnection(connection);
+			assertFalse(initialInputDAO.updateInitialInput(initialInput));
+			Mockito.verify(exceptionSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void deleteInitialInputSuccessTest() {
-		fail("Not yet implemented");
+		String sql = "delete from p1_test.initial_inputs where initial_input_id = ?;";
+		int initialInputId = 1;
+		try {
+			when(connection.prepareStatement(sql)).thenReturn(stmtDelete);
+			initialInputDAO.setConnection(connection);
+			assertTrue(initialInputDAO.deleteInitialInput(initialInputId));
+			Mockito.verify(stmtDelete).executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void deleteInitialInputFailTest() {
-		fail("Not yet implemented");
+		String sql = "delete from p1_test.initial_inputs where initial_input_id = ?;";
+		int initialInputId = 1;
+		try {
+			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
+			initialInputDAO.setConnection(connection);
+			assertFalse(initialInputDAO.deleteInitialInput(initialInputId));
+			Mockito.verify(exceptionSpy).printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public InitialInputDAOImplTest() throws SQLException {

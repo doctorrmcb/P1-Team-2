@@ -52,12 +52,12 @@ public class InitialInputDAOImpl implements InitialInputDAO {
 			stmt.setTimestamp(13, Timestamp.valueOf(initialInput.getTimeOutStart()));
 			stmt.setTimestamp(14, Timestamp.valueOf(initialInput.getTimeOutEnd()));
 			stmt.executeUpdate();
-			info("initialInput method ending. stmt: " + stmt);
+			info("createInitialInput method ending. stmt: " + stmt);
 			return true;
 		} catch (SQLException e) {
 			// TODO Implement logging.
 			e.printStackTrace();
-			error("initialInput method failed.");
+			error("createInitialInput method failed.");
 			return false;
 		}
 	}
@@ -93,14 +93,59 @@ public class InitialInputDAOImpl implements InitialInputDAO {
 
 	@Override
 	public boolean updateInitialInput(InitialInput initialInput) {
-		// TODO Auto-generated method stub
-		return false;
+		info("updateInitialInput method started. initialInput: " + initialInput);
+		String sql = "update p1_test.initial_inputs set reimbursement_id = ?, event_date = ?, location = ?, description = ?, cost = ?, evaluation_format_id = ?, justification = ?, event_file_name = ?, event_attachment = ?, approval_file_name = ?, approval_attachment = ?, time_out_start = ?, time_out_end = ? where initial_input_id = ?;";
+		PreparedStatement stmt;
+
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, initialInput.getReimbursementId());
+			stmt.setTimestamp(2, Timestamp.valueOf(initialInput.getEventDate()));
+			stmt.setString(3, initialInput.getLocation());
+			stmt.setString(4, initialInput.getDescription());
+			stmt.setDouble(5, initialInput.getCost());
+			stmt.setInt(6, initialInput.getEvaluationFormatId());
+			stmt.setString(7, initialInput.getJustification());
+			stmt.setString(8, initialInput.getEventFileName());
+			File eventFile = initialInput.getEventAttachment();
+			FileInputStream efis = StreamFactory.getFIS(eventFile);
+			stmt.setBinaryStream(9, efis);
+			stmt.setString(10, initialInput.getApprovalFileName());
+			File approvalFile = initialInput.getApprovalAttachment();
+			FileInputStream afis = StreamFactory.getFIS(approvalFile);
+			stmt.setBinaryStream(11, afis);
+			stmt.setTimestamp(12, Timestamp.valueOf(initialInput.getTimeOutStart()));
+			stmt.setTimestamp(13, Timestamp.valueOf(initialInput.getTimeOutEnd()));
+			stmt.setInt(14, initialInput.getInitialInputId());
+			stmt.executeUpdate();
+			info("updateInitialInput method ending. stmt: " + stmt);
+			return true;
+		} catch (SQLException e) {
+			// TODO Implement logging.
+			e.printStackTrace();
+			error("updateInitialInput method failed.");
+			return false;
+		}
 	}
 
 	@Override
 	public boolean deleteInitialInput(int initialInputId) {
-		// TODO Auto-generated method stub
-		return false;
+		info("deleteInitialInput method started. initialInputId: " + initialInputId);
+		String sql = "delete from p1_test.initial_inputs where initial_input_id = ?;";
+		PreparedStatement stmt;
+		
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, initialInputId);
+			stmt.executeUpdate();
+			info("deleteInitialInput method ending. stmt: " + stmt);
+			return true;
+		} catch (SQLException e) {
+			// TODO Implement logging.
+			e.printStackTrace();
+			error("deleteInitialInput method failed.");
+			return false;
+		}
 	}
 
 }
