@@ -401,3 +401,31 @@
 2019-10-19 21:49:03 ERROR root:14 - deleteEventType method failed.
 2019-10-19 21:49:11 INFO  root:26 - deleteEventType method started. eventTypeId: 1
 2019-10-19 21:49:11 INFO  root:26 - deleteEventType method ending. stmt: delete from p1_test.event_types where event_type_id = 1
+2019-10-20 15:50:42 INFO  root:26 - createEvaluation method started. Evaluation: Evaluation [evaluationId=1, reimbursementId=2, grade=testGrade, presentation=.\src\test\resources\testFile.txt, approval=true]
+2019-10-20 15:50:42 INFO  root:26 - createEvaluation method ending. stmt: insert into p1_test.evaluations values(1, 2, 'testGrade', './/src//test//resources//testFile.txt', ?, 'TRUE')
+2019-10-21 13:58:31 INFO  root:26 - createInitialInput method started. initialInput: InitialInput [initialInputId=1, reimbursementId=2, eventDate=2015-10-18T02:47:40, location=testLocation, description=testDescription, cost=1.0, evaluationFormatId=1, justification=testJustification, eventAttachment=.\src\test\resources\testFile.txt, approvalAttachment=.\src\test\resources\testFile.txt, timeOutStart=2015-10-18T02:47:40, timeOutEnd=2015-10-18T02:47:40]
+2019-10-21 13:58:31 INFO  root:26 - initialInput method ending. stmt: insert into p1_test.initial_inputs values(1, 2, '2015-10-18 02:47:40-04', 'testLocation', 'testDescription', 1.0, 1, 'testJustification', 'testEventFileName', ?, 'testApprovalFileName', ?, '2015-10-18 02:47:40-04', '2015-10-18 02:47:40-04')
+2019-10-21 13:58:36 INFO  root:26 - createInitialInput method started. initialInput: InitialInput [initialInputId=1, reimbursementId=2, eventDate=2015-10-18T02:47:40, location=testLocation, description=testDescription, cost=1.0, evaluationFormatId=1, justification=testJustification, eventAttachment=.\src\test\resources\testFile.txt, approvalAttachment=.\src\test\resources\testFile.txt, timeOutStart=2015-10-18T02:47:40, timeOutEnd=2015-10-18T02:47:40]
+2019-10-21 13:58:36 ERROR root:14 - initialInput method failed.
+2019-10-21 14:15:18 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:15:18 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:20:59 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:21:00 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:23:33 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:23:33 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:25:04 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:25:04 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:26:28 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:26:28 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:30:36 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:30:36 ERROR root:14 - readInitialInput method failed.
+2019-10-21 14:31:55 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:31:55 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:33:31 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:33:31 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:35:40 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:35:40 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:37:15 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:37:15 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
+2019-10-21 14:38:14 INFO  root:26 - readInitialInput method started. initialInputId: 1
+2019-10-21 14:38:14 INFO  root:26 - readInitialInput method ending. stmt: select * from p1_test.initial_inputs where initial_input_id = 1
