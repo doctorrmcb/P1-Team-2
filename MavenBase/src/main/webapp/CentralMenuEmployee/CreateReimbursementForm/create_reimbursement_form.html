@@ -36,7 +36,7 @@
                 <!-- Start of Section 1 Dropdown -->
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-                        <form id="form1" >
+                        <form id="form1" name="form1">
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <!-- <input type="date" name="eventDateStart" id="dob" class="form-control" placeholder="Start Date"> -->
@@ -132,10 +132,12 @@
                             function testSubmit() {
                                 console.log("testSubmit called.")
                                 $('#form2 :input').not(':submit').clone().hide().appendTo('#form1');
+                                let formData = new FormData(document.forms.form1)
                                 var xhr = new XMLHttpRequest();
                                 xhr.open("POST", "../../new-reimbursement", true);
                                 /* xhr.setRequestHeader('Content-Type', 'application/json'); */
                                 xhr.send(
+                                    formData  
                                     /* JSON.stringify({
                                     value: value
                                     }) */
