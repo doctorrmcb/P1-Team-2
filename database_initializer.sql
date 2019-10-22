@@ -1,5 +1,6 @@
 create table p1_test.employees (
-	employee_id int4,
+	employee_id serial,
+	reimbursement_id int4,
 	username varchar(40),
 	password varchar(40),
 	name text,
@@ -13,7 +14,7 @@ create table p1_test.employees (
 );
 
 create table p1_test.reimbursements (
-	reimbursement_id int4,
+	reimbursement_id serial,
 	employee_id int4,
 	approval_id int4,
 	initial_input_id int4,
@@ -23,7 +24,8 @@ create table p1_test.reimbursements (
 );
 
 create table p1_test.approvals (
-	approval_id int4,
+	approval_id serial,
+	reimbursement_id int4,
 	dir_sup_app bool,
 	dept_head_app bool,
 	ben_co_app bool,
@@ -37,7 +39,8 @@ create table p1_test.approvals (
 
 create table p1_test.initial_inputs (
 	--Required section
-	initial_input_id int4,
+	initial_input_id serial,
+	reimbursement_id int4,
 	event_date timestamp,
 	location text,
 	description text,
@@ -45,33 +48,52 @@ create table p1_test.initial_inputs (
 	evaluation_format_id int4, 
 	justification text,
 	--Optional section
+	event_file_name text,
 	event_attachment bytea,
+	approval_file_name text,
 	approval_attachment bytea,
 	time_out_start timestamp,
 	time_out_end timestamp,
-	constraint PK_approvals primary key (initial_input_id)
+	constraint PK_initial_inputs primary key (initial_input_id)
 );
 
 create table p1_test.evaluations (
-	evaluation_id int4,
+	evaluation_id serial,
+	reimbursement_id int4,
 	grade text,
+	file_path text,
 	presentation bytea,
 	approval bool,
 	constraint PK_evaluations primary key (evaluation_id)
 );
 
 create table p1_test.event_types (
-	event_type_id int4,
+	event_type_id serial,
+	reimbursement_id int4,
 	type text,
 	coverage numeric (5,2),
-	constraint PK_approvals primary key (event_type_id)
+	constraint PK_event_types primary key (event_type_id)
 );
 
 create table p1_test.evaluation_types (
-	evaluation_type_id int4,
+	evaluation_type_id serial,
+	reimbursement_id int4,
 	type text,
 	scale text,
 	passing_grade text,
 	presentation bool,
 	constraint PK_evaluation_types primary key (evaluation_type_id)
 );
+
+--Drop tables section:
+--drop table p1_test.approvals;
+--drop table p1_test.employees;
+--drop table p1_test.evaluation_types;
+--drop table p1_test.evaluations;
+--drop table p1_test.event_types;
+--drop table p1_test.initial_inputs;
+--drop table p1_test.reimbursements;
+
+--Test insert section:
+insert into p1_test.employees values(1, 2, 'user', 'pass', 'testName', 'testAddress', 'testEmail', 'testPhone', 2, 'testTitle', 50);
+delete from p1_test.employees where employee_id = 1;

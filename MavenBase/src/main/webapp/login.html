@@ -7,8 +7,8 @@
     <title>Tuition Reimbursement Management System</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/login.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='CSS/login.css'>
+    <script src='CentralMenuEmployee/JS/code.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
@@ -30,29 +30,29 @@
                         </button>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                <input type="text" placeholder="Name"/>
-                                <input type="text" placeholder="Employee ID"/>
-                                <input type="text" id="addressInput" placeholder="Address"/>        
-                                <input type="text" placeholder="Email"/>
-                                <input type="text" placeholder="Phone"/>
-                                <input type="text" placeholder="Manager Name"/>
-                                <input type="text" placeholder="Department"/>            
+                                <input type="text" placeholder="Name" />
+                                <input type="text" placeholder="Employee ID" />
+                                <input type="text" id="addressInput" placeholder="Address" />
+                                <input type="text" placeholder="Email" />
+                                <input type="text" placeholder="Phone" />
+                                <input type="text" placeholder="Manager Name" />
+                                <input type="text" placeholder="Department" />
                                 <input type="text" placeholder="Username" />
                                 <input type="text" placeholder="Password" />
-                                <button id="registerButton">register</button>
+                                <button type="button" onclick="goFromLogintoMainMenu()" id="registerButton">register</button>
                             </div>
                         </div>
-                        
+
                         <!-- <input type="text" placeholder="email" /> -->
                         <!-- <button>Create</button> -->
                         <p class="message" id="registerMessage">Already Registered? <a href="#">Login</a>
                         </p>
                     </form>
 
-                    <form class="login-form">
-                        <input type="text" placeholder="Username"/>
-                        <input type="password" placeholder="Password"/>
-                        <button>login</button>
+                    <form action="login" method="POST" class="login-form">
+                        <input type="text" name="username" placeholder="Username" />
+                        <input type="password" name="password" placeholder="Password" />
+                        <button type="submit">login</button>
                         <p class="message">Not Registered? <a href="#">Register</a>
                         </p>
                     </form>
