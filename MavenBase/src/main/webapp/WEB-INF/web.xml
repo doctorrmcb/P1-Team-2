@@ -29,6 +29,16 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateReimbursementServlet</display-name>
+    <servlet-name>CreateReimbursementServlet</servlet-name>
+    <servlet-class>com.revature.tuition.servlet.CreateReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateReimbursementServlet</servlet-name>
+    <url-pattern>/new-reimbursement</url-pattern>
+  </servlet-mapping>
   <context-param>
     <param-name>message</param-name>
     <param-value>Welcome to our website </param-value>

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='CSS/create_reimbursement_form.css'>
     <script src='../JS/code.js'></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,7 +24,7 @@
     <footer>
         <div class="accordion" id="accordionExample">
 
-            <!-- Start of Section 2 -->
+            <!-- Start of Section 1 -->
             <div class="card">
                 <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
@@ -30,53 +33,36 @@
                         </button>
                     </h5>
                 </div>
-                <!-- Start of Section 2 Dropdown -->
+                <!-- Start of Section 1 Dropdown -->
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-
-                        <form>
-
+                        <form id="form1" >
                             <div class="form-row">
-                                <span>  START</span>
                                 <div class="form-group col-md-3">
-                                    <input type="date" id="dob" class="form-control" placeholder="Start Date">
+                                    <!-- <input type="date" name="eventDateStart" id="dob" class="form-control" placeholder="Start Date"> -->
+                                    <label for="event-start-time">Event Start Time:</label>
+                                    <input type="datetime-local" id="event-start-time" name="eventStartTime" value="2018-06-12T19:30">
                                 </div>
-                                <span>END</span>
                                 <div class="form-group col-md-3">
-                                    <input type="date" id="dob" class="form-control" placeholder="End Date">
-                                </div>
-                                <span>FROM</span>
-                                <div class="form-group col-md-1">
-                                    <input type="number" class="form-control" min="0" max="23" placeholder="08">
-                                </div>
-                                <span>:</span>
-                                <div class="form-group col-md-1">
-                                    <input type="number" class="form-control" min="0" max="59" placeholder="00">
-                                </div>
-                                <span>TO</span>
-                                <div class="form-group col-md-1">
-                                    <input type="number" class="form-control" min="0" max="23" placeholder="20">
-                                </div>
-                                <span>:</span>
-                                <div class="form-group col-md-1">
-                                    <input type="number" class="form-control" min="0" max="59" placeholder="00">
+                                    <label for="event-end-time">Event End Time:</label>
+                                    <input type="datetime-local" id="event-end-time" name="eventEndTime" value="2018-06-13T19:30">
                                 </div>
                             </div>
 
 
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="inputText" placeholder="Justification">
+                                    <input type="text" name="justification" class="form-control" id="inputText" placeholder="Justification">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <input type="text" class="form-control" id="inputText" placeholder="Grade Format">
                                 </div>
                                 <span> COST: $</span>
                                 <div class="form-group col-md-2">
-                                    <input type="number" min="0" step="0.01" value="0000.00" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="c1" placeholder="Cost" />
+                                    <input type="number" name="cost" min="0" step="0.01" value="0000.00" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="c1" placeholder="Cost" />
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <select class="form-control">
+                                    <select class="form-control" name="eventType">
                                                 <option value="" disabled selected>Choose a type of event</option>
                                                 <option value="1">University Course</option>
                                                 <option value="2">Seminar</option>
@@ -89,10 +75,10 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" id="inputText" placeholder="Location">
+                                <input type="text" name="location" class="form-control" id="inputText" placeholder="Location">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="inputText" placeholder="Event Description">
+                                <input type="text" name="description" class="form-control" id="inputText" placeholder="Event Description">
                             </div>
 
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Next</button>
@@ -102,7 +88,7 @@
             </div>
 
 
-            <!-- Start of Section 3 -->
+            <!-- Start of Section 2 -->
             <div class="card">
                 <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
@@ -112,16 +98,16 @@
                     </h5>
                 </div>
 
-                <!-- Start of Section 3 Dropdown -->
+                <!-- Start of Section 2 Dropdown -->
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body">
 
-                        <form>
+                        <form id="form2">
                             <div class="mb-3">
-                                <textarea class="form-control" id="validationTextarea" placeholder="Please type additional related to your attachment" required></textarea>
+                                <textarea class="form-control" id="validationTextarea" placeholder="Please type any additional information related to your attachment" required></textarea>
                             </div>
                             <div class="form-group">
-                                <select class="custom-select" required>
+                                <select class="custom-select" name="fileInputType" required>
                                         <option value="" disabled selected>Select the type of file you want to attach</option>
                                         <option value="1">Event related attachment</option>
                                         <option value="2">Preapproval Email</option>
@@ -130,10 +116,32 @@
                             </div>
 
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="file" required>
                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                             </div>
+                            <script>
+                                $('#validatedCustomFile').on('change',function(){
+                                    //get the file name
+                                    var fileName = $(this).val();
+                                    //replace the "Choose a file" label
+                                    $(this).next('.custom-file-label').html(fileName);
+                                })
+                            </script>
                         </form>
+                        <script>
+                            function testSubmit() {
+                                console.log("testSubmit called.")
+                                $('#form2 :input').not(':submit').clone().hide().appendTo('#form1');
+                                var xhr = new XMLHttpRequest();
+                                xhr.open("POST", "../../new-reimbursement", true);
+                                /* xhr.setRequestHeader('Content-Type', 'application/json'); */
+                                xhr.send(
+                                    /* JSON.stringify({
+                                    value: value
+                                    }) */
+                                );
+                            }
+                        </script>
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Done</button>
                     </div>
                 </div>
@@ -145,14 +153,11 @@
             <div class="submitDiv">
                 <button type="button" onclick="goFromPageToMenu()" class="btn btn-primary">Main Menu</button>
                 <button type="button" onclick="submittingAfterCreation()" class="btn btn-secondary">Save</button>
-                <button type="button" onclick="submittingAfterCreation()" class="btn btn-secondary">Submit</button>
+                <button type="button" onclick="testSubmit()" class="btn btn-secondary">Submit</button>
                 <button type="button" onclick="logoutFromCreateForm()" class="btn btn-success">Logout</button>
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

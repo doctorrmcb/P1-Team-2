@@ -42,7 +42,7 @@ public class RegisterServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		Employee employee = employeeService.registerEmployee(name, employeeId, address, email, phone, reportsToStr, title, username, password);
 		if (employee != null) {
-			response.sendRedirect("central_menu_employee.html");
+			response.sendRedirect("CentralMenuEmployee/central_menu_employee.html");
 		} else {
 			response.getWriter().write("Sorry, but you were not able to register correctly :(");
 		}

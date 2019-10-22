@@ -17,3 +17,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#event-start-time, #event-end-time {
+    margin: .4rem 0;
+}
