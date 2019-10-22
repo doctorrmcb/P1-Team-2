@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sample HTML</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/view_manage_reimbursement.css'>
+    <script src='../JS/code.js'></script>
+</head>
+
+<body>
+    <header>
+        <div class="jumbotron">
+            <h1 class="display-4">View, Update or Delete <br> Reimbursement Form</h1>
+        </div>
+    </header>
+
+    <footer>
+        <div class="accordion" id="accordionExample">
+
+            <form>
+                <table class="table table-hover" id="myTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">employeeId</th>
+                            <th scope="col">ReportsTo</th>
+                            <th scope="col">Event_Id</th>
+                            <th scope="col">Amount Claimed</th>
+                            <th scope="col">Event Type</th>
+                            <th scope="col">Current Status</th>
+                            <th scope="col">Reviewed on</th>
+                            <th scope="col">Reviewer Name </th>
+                            <th scope="col">Reviewer Title </th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>00259</td>
+                            <td>Team Well</td>
+                            <td>52600</td>
+                            <td>$ 123.65</td>
+                            <td>University Classes</td>
+                            <td>Approval Level 2</td>
+                            <td>10/29/2019</td>
+                            <td>Otto Marie</td>
+                            <td>Director Manager</td>
+                            <td><input type="button" value="Edit" onclick="goToUpdateForm()"></td>
+                            <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>00259</td>
+                            <td>Team Well</td>
+                            <td>52520</td>
+                            <td>$ 523.65</td>
+                            <td>Certification</td>
+                            <td>Approval Level 1</td>
+                            <td>10/29/2069</td>
+                            <td>Otto Marie</td>
+                            <td>Supervisor</td>
+                            <td><input type="button" value="Edit" onclick="goToUpdateForm()"></td>
+                            <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+
+            <!-- Start of Navigation Button Section -->
+            <div class="row" id="submitRow">
+                <div class="submitDiv">
+                    <button type="submit" onclick="goFromPageToMenu()" class="btn btn-secondary">Main Menu</button>
+                    <button type="button" onclick="logoutFromViewUpdateForm()" class="btn btn-success">Log Out</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+            location.replace("https://www.w3schools.com")
+        }
+    </script>
+
+</body>
+
+</html>

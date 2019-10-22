@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sample HTML</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='CSS/Update_Pending_Form.css'>
+    <script src='../JS/codeForDirectSupervisor.js'></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="jumbotron">
+            <h1 class="display-4">Update Pending Reimbursement Form [ID of form goes here] </h1>
+        </div>
+    </header>
+
+    <footer>
+        <div class="accordion" id="accordionExample">
+
+            <!-- Start of Section 2 -->
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Event Info
+                    </button>
+                    </h5>
+                </div>
+                <!-- Start of Section 2 Dropdown -->
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+
+                        <form>
+
+                            <div class="form-row">
+                                <span>  START</span>
+                                <div class="form-group col-md-3">
+                                    <input type="date" id="dob" class="form-control" placeholder="Start Date">
+                                </div>
+                                <span>END</span>
+                                <div class="form-group col-md-3">
+                                    <input type="date" id="dob" class="form-control" placeholder="End Date">
+                                </div>
+                                <span>FROM</span>
+                                <div class="form-group col-md-1">
+                                    <input type="number" class="form-control" min="0" max="23" placeholder="08">
+                                </div>
+                                <span>:</span>
+                                <div class="form-group col-md-1">
+                                    <input type="number" class="form-control" min="0" max="59" placeholder="00">
+                                </div>
+                                <span>TO</span>
+                                <div class="form-group col-md-1">
+                                    <input type="number" class="form-control" min="0" max="23" placeholder="20">
+                                </div>
+                                <span>:</span>
+                                <div class="form-group col-md-1">
+                                    <input type="number" class="form-control" min="0" max="59" placeholder="00">
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <input type="text" class="form-control" id="inputText" placeholder="Justification">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="text" class="form-control" id="inputText" placeholder="Grade Format">
+                                </div>
+                                <span> COST: $</span>
+                                <div class="form-group col-md-2">
+                                    <input type="number" min="0" step="0.01" value="0000.00" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="c1" placeholder="Cost" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <select class="form-control">
+                                            <option value="" disabled selected>Choose a type of event</option>
+                                            <option value="1">University Course</option>
+                                            <option value="2">Seminar</option>
+                                            <option value="3">Preparation class certification</option>
+                                            <option value="4">Certification</option>
+                                            <option value="5">Technical Training</option>
+                                            <option value="6">Other</option>
+                                        </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputText" placeholder="Location">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputText" placeholder="Event Description">
+                            </div>
+
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Next</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Start of Section 3 -->
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Optional Info
+                      </button>
+                    </h5>
+                </div>
+                <!-- Start of Section 3 Dropdown -->
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+
+                        <form>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="validationTextarea" placeholder="Please type additional related to your attachment" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <select class="custom-select" required>
+                                            <option value="" disabled selected>Select the type of file you want to attach</option>
+                                            <option value="1">Event related attachment</option>
+                                            <option value="2">Preapproval Email</option>
+                                            <option value="3">Time off attachement</option>
+                                          </select>
+                            </div>
+
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                            </div>
+                        </form>
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start of Navigation Button Section -->
+        <div class="row" id="submitRow">
+            <div class="submitDiv">
+                <button type="button" onclick="goFromPageToMenu()" class="btn btn-primary">Main Menu</button>
+                <button type="button" onclick="goToViewFormFromEdit()" class="btn btn-secondary">Save</button>
+                <button type="button" onclick="goToViewFormFromEdit()" class="btn btn-secondary">Submit</button>
+                <button type="button" onclick="logoutFromEditForm()" class="btn btn-success">Logout</button>
+            </div>
+        </div>
+    </footer>
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+            <img src="..." class="rounded mr-2" alt="...">
+            <strong class="mr-auto">TMRS</strong>
+            <small>1 min ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+        </div>
+        <div class="toast-body">
+            Form successfully submitted.
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
