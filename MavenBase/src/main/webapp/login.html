@@ -24,21 +24,21 @@
             <!-- Start of Section 1 -->
             <div class="login-page">
                 <div class="form">
-                    <form class="register-form">
+                    <form action="register" method="POST" class="register-form">
                         <button class="collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             Please Fill This Form Out
                         </button>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                <input type="text" placeholder="Name"/>
-                                <input type="text" placeholder="Employee ID"/>
-                                <input type="text" id="addressInput" placeholder="Address"/>        
-                                <input type="text" placeholder="Email"/>
-                                <input type="text" placeholder="Phone"/>
-                                <input type="text" placeholder="Manager Name"/>
-                                <input type="text" placeholder="Department"/>            
-                                <input type="text" placeholder="Username" />
-                                <input type="text" placeholder="Password" />
+                                <input type="text" name="name" placeholder="Name"/>
+                                <input type="text" name="employeeId" placeholder="Employee ID"/>
+                                <input type="text" name="address" id="addressInput" placeholder="Address"/>        
+                                <input type="text" name="email" placeholder="Email"/>
+                                <input type="text" name="phone" placeholder="Phone"/>
+                                <input type="text" name="reportsTo" placeholder="Manager ID"/>
+                                <input type="text" name="title" placeholder="Employee Title"/>            
+                                <input type="text" name="username" placeholder="Username" />
+                                <input type="text" name="password" placeholder="Password" />
                                 <button id="registerButton">register</button>
                             </div>
                         </div>
