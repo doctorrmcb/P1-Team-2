@@ -11,22 +11,16 @@ import com.revature.tuition.pojo.Employee;
 import com.revature.tuition.service.EmployeeService;
 import com.revature.tuition.service.EmployeeServiceImpl;
 
-/**
- * Servlet implementation class LoginServlet
- */
-public class LoginServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static EmployeeService employeeService = new EmployeeServiceImpl();   
+    private static EmployeeService employeeService = new EmployeeServiceImpl();
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    public RegisterServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}   
 
-	/**
+    /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,12 +33,18 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		Employee employee = employeeService.loginEmployee(username, password);
+		String name = request.getParameter("name"); 
+		int employeeId = Integer.parseInt(request.getParameter("employeeId")); 
+		String address = request.getParameter("address"); 
+		String email = request.getParameter("email"); 
+		String phone = request.getParameter("phone"); 
+		String reportsToStr = request.getParameter("reportsTo"); 
+		String title = request.getParameter("title");
+		Employee employee = employeeService.registerEmployee(name, employeeId, address, email, phone, reportsToStr, title, username, password);
 		if (employee != null) {
 			response.sendRedirect("central_menu_employee.html");
 		} else {
-			response.getWriter().write("Sorry, but you were not able to login correctly :(");
+			response.getWriter().write("Sorry, but you were not able to register correctly :(");
 		}
 	}
-
 }
