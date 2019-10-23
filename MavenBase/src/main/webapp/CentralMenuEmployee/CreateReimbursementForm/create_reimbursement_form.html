@@ -131,16 +131,18 @@
                         <script>
                             function testSubmit() {
                                 console.log("testSubmit called.")
-                                $('#form2 :input').not(':submit').clone().hide().appendTo('#form1');
-                                let formData = new FormData(document.forms.form1)
+                                //$('#form2 :input').not(':submit').clone().hide().appendTo('#form1');
+                                let testData = document.getElementById("form1");
+                                let formData = new FormData();
                                 var xhr = new XMLHttpRequest();
+                                formData.append("event-start-time", "2018-06-12T19:30");
+                                formData.append("username", "Groucho");
                                 xhr.open("POST", "../../new-reimbursement", true);
                                 /* xhr.setRequestHeader('Content-Type', 'application/json'); */
+                                let test = JSON.stringify([new Number(3), new String('false'), new Boolean(false)]);
                                 xhr.send(
-                                    formData  
-                                    /* JSON.stringify({
-                                    value: value
-                                    }) */
+                                    //formData  
+                                    JSON.stringify([new Number(3), new String('false'), new Boolean(false)])
                                 );
                             }
                         </script>

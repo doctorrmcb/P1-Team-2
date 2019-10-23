@@ -43,6 +43,7 @@ private static ReimbursementService reimbursementService = new ReimbursementServ
 		int initialInputId = 1;
 		// TODO: This should be auto generated.
 		int reimbursementId = 1;
+		info("Parameter names: " + request.getParameterNames());
 		// TODO: FIX THIS LINE!!!! POST BODY IS EMPTY
 		LocalDateTime eventDate = LocalDateTime.parse(request.getParameter("event-start-time"));
 		String location = request.getParameter("location");
