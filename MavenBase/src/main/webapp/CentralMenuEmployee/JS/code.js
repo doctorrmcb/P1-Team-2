@@ -54,7 +54,7 @@ function dateDisplay() {
 };
 
 function openNav() {
-    notification(4);
+    //notification(4);
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
 };
@@ -66,16 +66,18 @@ function closeNav() {
 
 function notification(n) {
     for (let i = 0; i < n; i++) {
-        createAnchor("[message goes here]");
+        createAnchor("[notification triggers onload]");
     }
 
 };
 
+
 function createAnchor(message) {
-    var para = document.createElement("P");
+    let para = document.createElement("P");
     para.innerHTML = message;
     document.getElementById("myCreation").appendChild(para);
 }
+
 
 function toastSubmitted() {
     let x = document.getElementById("snackbar");
