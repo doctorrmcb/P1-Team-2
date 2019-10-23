@@ -41,7 +41,23 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		Employee employee = employeeService.loginEmployee(username, password);
 		if (employee != null) {
-			response.sendRedirect("CentralMenuEmployee/central_menu_employee.html");
+			
+			String title = employee.getTitle();
+			switch (title) { 
+	        case "direct supervisor": 
+	        	response.sendRedirect("CentralMenuSupervisor/central_menu_Supervisor.html");
+	            break; 
+	        case "department head": 
+	        	response.sendRedirect("CentralMenuSupervisor/central_menu_Supervisor.html"); 
+	            break; 
+	        case "benco" : 
+	        	response.sendRedirect("BencoPrivilegeForm/BencoPrivilegeForm.html");
+	            break; 
+	        default:
+	        	response.sendRedirect("CentralMenuEmployee/central_menu_employee.html");
+	        } 
+			
+			
 		} else {
 			response.getWriter().write("Sorry, but you were not able to login correctly :(");
 		}
