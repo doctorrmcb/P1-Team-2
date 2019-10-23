@@ -96,3 +96,32 @@ document.querySelectorAll('input[type=number]')
         // Avoiding letters on FF
         if (!e.value) e.value = '00';
     });
+
+function createNewReimbursement() {
+    class InitialInput {
+        constructor(initialInputId, reimbursementId, eventDate, location, description, cost, evaluationFormatId, justification, eventFileName, eventAttachment, approvalFileName, approvalAttachment, timeOutStart, timeOutEnd) {
+            this.initialInputId = initialInputId;
+            this.reimbursementId = reimbursementId;
+            this.eventDate = eventDate;
+            this.location = location;
+            this.description = description;
+            this.cost = cost;
+            this.evaluationFormatId = evaluationFormatId;
+            this.justification = justification;
+            this.eventFileName = eventFileName;
+            this.eventAttachment = eventAttachment;
+            this.approvalFileName = approvalFileName;
+            this.approvalAttachment = approvalAttachment;
+            this.timeOutStart = timeOutStart;
+            this.timeOutEnd = timeOutEnd;
+        }
+    }
+    console.log("testSubmit called.")
+    let testData = document.getElementById("form1");
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../../new-reimbursement", true);
+    let input = new InitialInput("1", "1", document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, document.getElementById("validatedCustomFile").value, "file", document.getElementById("validatedCustomFile").value, "file", document.getElementById("event-start-time").value, document.getElementById("event-end-time").value);
+    xhr.send(
+        JSON.stringify(input)
+    );
+}

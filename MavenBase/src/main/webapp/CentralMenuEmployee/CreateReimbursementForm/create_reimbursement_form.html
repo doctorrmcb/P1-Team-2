@@ -128,36 +128,6 @@
                                 })
                             </script>
                         </form>
-                        <script>
-                            function testSubmit() {
-                                class InitialInput {
-                                    constructor(initialInputId, reimbursementId, eventDate, location, description, cost, evaluationFormatId, justification, eventFileName, eventAttachment, approvalFileName, approvalAttachment, timeOutStart, timeOutEnd) {
-                                        this.initialInputId = initialInputId;
-                                        this.reimbursementId = reimbursementId;
-                                        this.eventDate = eventDate;
-                                        this.location = location;
-                                        this.description = description;
-                                        this.cost = cost;
-                                        this.evaluationFormatId = evaluationFormatId;
-                                        this.justification = justification;
-                                        this.eventFileName = eventFileName;
-                                        this.eventAttachment = eventAttachment;
-                                        this.approvalFileName = approvalFileName;
-                                        this.approvalAttachment = approvalAttachment;
-                                        this.timeOutStart = timeOutStart;
-                                        this.timeOutEnd = timeOutEnd;
-                                    }
-                                }
-                                console.log("testSubmit called.")
-                                let testData = document.getElementById("form1");
-                                var xhr = new XMLHttpRequest();
-                                xhr.open("POST", "../../new-reimbursement", true);
-                                let input = new InitialInput("1", "1", document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, document.getElementById("validatedCustomFile").value, "file", document.getElementById("validatedCustomFile").value, "file", document.getElementById("event-start-time").value, document.getElementById("event-end-time").value);
-                                xhr.send(
-                                    JSON.stringify(input)
-                                );
-                            }
-                        </script>
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Done</button>
                     </div>
                 </div>
@@ -169,7 +139,7 @@
             <div class="submitDiv">
                 <button type="button" onclick="goFromPageToMenu()" class="btn btn-primary">Main Menu</button>
                 <button type="button" onclick="submittingAfterCreation()" class="btn btn-secondary">Save</button>
-                <button type="button" onclick="testSubmit()" class="btn btn-secondary">Submit</button>
+                <button type="button" onclick="createNewReimbursement()" class="btn btn-secondary">Submit</button>
                 <button type="button" onclick="logoutFromCreateForm()" class="btn btn-success">Logout</button>
             </div>
         </div>

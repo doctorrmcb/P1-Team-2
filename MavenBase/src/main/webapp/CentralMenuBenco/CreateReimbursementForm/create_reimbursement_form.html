@@ -128,24 +128,6 @@
                                 })
                             </script>
                         </form>
-                        <script>
-                            function testSubmit() {
-                                console.log("testSubmit called.")
-                                //$('#form2 :input').not(':submit').clone().hide().appendTo('#form1');
-                                let testData = document.getElementById("form1");
-                                let formData = new FormData();
-                                var xhr = new XMLHttpRequest();
-                                formData.append("event-start-time", "2018-06-12T19:30");
-                                formData.append("username", "Groucho");
-                                xhr.open("POST", "../../new-reimbursement", true);
-                                /* xhr.setRequestHeader('Content-Type', 'application/json'); */
-                                let test = JSON.stringify([new Number(3), new String('false'), new Boolean(false)]);
-                                xhr.send(
-                                    //formData  
-                                    JSON.stringify([new Number(3), new String('false'), new Boolean(false)])
-                                );
-                            }
-                        </script>
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Done</button>
                     </div>
                 </div>
@@ -157,7 +139,7 @@
             <div class="submitDiv">
                 <button type="button" onclick="goFromPageToMenu()" class="btn btn-primary">Main Menu</button>
                 <button type="button" onclick="submittingAfterCreation()" class="btn btn-secondary">Save</button>
-                <button type="button" onclick="testSubmit()" class="btn btn-secondary">Submit</button>
+                <button type="button" onclick="createNewReimbursement()" class="btn btn-secondary">Submit</button>
                 <button type="button" onclick="logoutFromCreateForm()" class="btn btn-success">Logout</button>
             </div>
         </div>
