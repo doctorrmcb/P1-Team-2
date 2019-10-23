@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 	        	response.sendRedirect("CentralMenuSupervisor/central_menu_Supervisor.html"); 
 	            break; 
 	        case "benco" : 
-	        	response.sendRedirect("BencoPrivilegeForm/BencoPrivilegeForm.html");
+	        	response.sendRedirect("CentralMenuBenco/central_menu_Benco.html");
 	            break; 
 	        default:
 	        	response.sendRedirect("CentralMenuEmployee/central_menu_employee.html");
