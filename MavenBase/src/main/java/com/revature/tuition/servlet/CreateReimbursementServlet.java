@@ -16,11 +16,13 @@ import com.revature.tuition.service.EmployeeService;
 import com.revature.tuition.service.EmployeeServiceImpl;
 import com.revature.tuition.service.ReimbursementService;
 import com.revature.tuition.service.ReimbursementServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import static com.revature.tuition.util.LoggerUtil.*;
 
 public class CreateReimbursementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-private static ReimbursementService reimbursementService = new ReimbursementServiceImpl();
+	private static ReimbursementService reimbursementService = new ReimbursementServiceImpl();
+	ObjectMapper objectMapper = new ObjectMapper();
 	
     public CreateReimbursementServlet() {
 		super();
@@ -39,6 +41,8 @@ private static ReimbursementService reimbursementService = new ReimbursementServ
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		info("Starting doPost method for CreateReimbursementServlet.");
+		String body = request.getReader().readLine();
+		InitialInput initialInput2 = objectMapper.readValue(body, InitialInput.class);
 		// TODO: This should be auto generated.
 		int initialInputId = 1;
 		// TODO: This should be auto generated.

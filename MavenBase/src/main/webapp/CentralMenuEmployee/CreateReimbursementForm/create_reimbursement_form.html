@@ -52,14 +52,14 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <input type="text" name="justification" class="form-control" id="inputText" placeholder="Justification">
+                                    <input type="text" name="justification" class="form-control" id="justification" placeholder="Justification">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <input type="text" class="form-control" id="inputText" placeholder="Grade Format">
                                 </div>
                                 <span> COST: $</span>
                                 <div class="form-group col-md-2">
-                                    <input type="number" name="cost" min="0" step="0.01" value="0000.00" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="c1" placeholder="Cost" />
+                                    <input type="number" name="cost" min="0" step="0.01" value="0000.00" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" id="cost" placeholder="Cost" />
                                 </div>
                                 <div class="form-group col-md-3">
                                     <select class="form-control" name="eventType">
@@ -75,10 +75,10 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" name="location" class="form-control" id="inputText" placeholder="Location">
+                                <input type="text" name="location" class="form-control" id="location" placeholder="Location">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="description" class="form-control" id="inputText" placeholder="Event Description">
+                                <input type="text" name="description" class="form-control" id="description" placeholder="Event Description">
                             </div>
 
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Next</button>
@@ -107,7 +107,7 @@
                                 <textarea class="form-control" id="validationTextarea" placeholder="Please type any additional information related to your attachment" required></textarea>
                             </div>
                             <div class="form-group">
-                                <select class="custom-select" name="fileInputType" required>
+                                <select class="custom-select" name="fileInputType" id="evaluationFormatId" required>
                                         <option value="" disabled selected>Select the type of file you want to attach</option>
                                         <option value="1">Event related attachment</option>
                                         <option value="2">Preapproval Email</option>
@@ -130,19 +130,33 @@
                         </form>
                         <script>
                             function testSubmit() {
+                                class InitialInput {
+                                    constructor(initialInputId, reimbursementId, eventDate, location, description, cost, evaluationFormatId, justification, eventFileName, eventAttachment, approvalFileName, approvalAttachment, timeOutStart, timeOutEnd) {
+                                        this.initialInputId = initialInputId;
+                                        this.reimbursementId = reimbursementId;
+                                        this.eventDate = eventDate;
+                                        this.location = location;
+                                        this.description = description;
+                                        this.cost = cost;
+                                        this.evaluationFormatId = evaluationFormatId;
+                                        this.justification = justification;
+                                        this.eventFileName = eventFileName;
+                                        this.eventAttachment = eventAttachment;
+                                        this.approvalFileName = approvalFileName;
+                                        this.approvalAttachment = approvalAttachment;
+                                        this.timeOutStart = timeOutStart;
+                                        this.timeOutEnd = timeOutEnd;
+                                    }
+                                }
                                 console.log("testSubmit called.")
                                 //$('#form2 :input').not(':submit').clone().hide().appendTo('#form1');
                                 let testData = document.getElementById("form1");
-                                let formData = new FormData();
                                 var xhr = new XMLHttpRequest();
-                                formData.append("event-start-time", "2018-06-12T19:30");
-                                formData.append("username", "Groucho");
                                 xhr.open("POST", "../../new-reimbursement", true);
                                 /* xhr.setRequestHeader('Content-Type', 'application/json'); */
-                                let test = JSON.stringify([new Number(3), new String('false'), new Boolean(false)]);
+                                let input = new InitialInput("1", "1", document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, document.getElementById("validatedCustomFile").value, "file", document.getElementById("validatedCustomFile").value, "file", document.getElementById("event-start-time").value, document.getElementById("event-end-time").value);
                                 xhr.send(
-                                    //formData  
-                                    JSON.stringify([new Number(3), new String('false'), new Boolean(false)])
+                                    JSON.stringify(input)
                                 );
                             }
                         </script>
