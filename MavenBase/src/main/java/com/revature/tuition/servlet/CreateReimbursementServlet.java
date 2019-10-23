@@ -2,6 +2,7 @@ package com.revature.tuition.servlet;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
@@ -46,6 +47,7 @@ public class CreateReimbursementServlet extends HttpServlet {
 		info("Starting doPost method for CreateReimbursementServlet.");
 		String body = request.getReader().readLine();
 		InitialInput initialInput = objectMapper.readValue(body, InitialInput.class);
+		//InputStream is = request.getInputStream();
 		info("Initialized all variables. Making service request.");
 		InitialInput dataInitialInput = reimbursementService.createNewReimbursement(initialInput.getInitialInputId(), initialInput.getReimbursementId(), initialInput.getEventDate(), initialInput.getLocation(), initialInput.getDescription(), initialInput.getCost(), initialInput.getEvaluationFormatId(), initialInput.getJustification(), initialInput.getEventFileName(), initialInput.getEventAttachment(), initialInput.getApprovalFileName(), initialInput.getApprovalAttachment(), initialInput.getTimeOutStart(), initialInput.getTimeOutEnd());
 		if (dataInitialInput != null) {

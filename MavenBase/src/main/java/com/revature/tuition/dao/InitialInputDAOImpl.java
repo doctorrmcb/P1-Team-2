@@ -43,12 +43,20 @@ public class InitialInputDAOImpl implements InitialInputDAO {
 			stmt.setString(8, initialInput.getJustification());
 			stmt.setString(9, initialInput.getEventFileName());
 			File eventFile = initialInput.getEventAttachment();
-			FileInputStream efis = StreamFactory.getFIS(eventFile);
-			stmt.setBinaryStream(10, efis);
+			if (eventFile == null) {
+				stmt.setNull(10, java.sql.Types.OTHER);
+			} else {
+				FileInputStream efis = StreamFactory.getFIS(eventFile);
+				stmt.setBinaryStream(10, efis);
+			}
 			stmt.setString(11, initialInput.getApprovalFileName());
 			File approvalFile = initialInput.getApprovalAttachment();
-			FileInputStream afis = StreamFactory.getFIS(approvalFile);
-			stmt.setBinaryStream(12, afis);
+			if (approvalFile == null) {
+				stmt.setNull(12, java.sql.Types.OTHER);
+			} else {
+				FileInputStream afis = StreamFactory.getFIS(approvalFile);
+				stmt.setBinaryStream(12, afis);
+			}
 			stmt.setTimestamp(13, Timestamp.valueOf(initialInput.getTimeOutStart()));
 			stmt.setTimestamp(14, Timestamp.valueOf(initialInput.getTimeOutEnd()));
 			stmt.executeUpdate();
