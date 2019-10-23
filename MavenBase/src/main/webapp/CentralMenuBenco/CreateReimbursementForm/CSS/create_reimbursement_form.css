@@ -1,0 +1,23 @@
+.jumbotron {
+    text-align: center;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.submitDiv {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#event-start-time, #event-end-time {
+    margin: .4rem 0;
+}
