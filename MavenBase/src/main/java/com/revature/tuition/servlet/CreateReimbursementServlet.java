@@ -17,12 +17,15 @@ import com.revature.tuition.service.EmployeeServiceImpl;
 import com.revature.tuition.service.ReimbursementService;
 import com.revature.tuition.service.ReimbursementServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.*;
+
 import static com.revature.tuition.util.LoggerUtil.*;
 
 public class CreateReimbursementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static ReimbursementService reimbursementService = new ReimbursementServiceImpl();
-	ObjectMapper objectMapper = new ObjectMapper();
+	ObjectMapper objectMapper = new ObjectMapper()
+		.findAndRegisterModules();
 	
     public CreateReimbursementServlet() {
 		super();
@@ -42,37 +45,10 @@ public class CreateReimbursementServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		info("Starting doPost method for CreateReimbursementServlet.");
 		String body = request.getReader().readLine();
-		InitialInput initialInput2 = objectMapper.readValue(body, InitialInput.class);
-		// TODO: This should be auto generated.
-		int initialInputId = 1;
-		// TODO: This should be auto generated.
-		int reimbursementId = 1;
-		info("Parameter names: " + request.getParameterNames());
-		// TODO: FIX THIS LINE!!!! POST BODY IS EMPTY
-		LocalDateTime eventDate = LocalDateTime.parse(request.getParameter("event-start-time"));
-		String location = request.getParameter("location");
-		String description = request.getParameter("description");
-		double cost = Double.parseDouble(request.getParameter("cost"));
-		int evaluationFormatId = Integer.parseInt(request.getParameter("eventType"));
-		String justification = request.getParameter("justification");
-		// Optional section
-		String fileInputType = request.getParameter("fileInputType");
-		String eventFileName = "";
-		String approvalFileName = "";
-		if (fileInputType == "1") {
-			eventFileName = request.getParameter("file");
-		} else if (fileInputType == "2") {
-			approvalFileName = request.getParameter("file");
-		}
-		// TODO: if this doesn't work, fix it.
-		File eventAttachment = null;
-		// TODO: if this doesn't work, fix it.
-		File approvalAttachment = null;
-		LocalDateTime timeOutStart = LocalDateTime.parse(request.getParameter("event-start-time"));
-		LocalDateTime timeOutEnd = LocalDateTime.parse(request.getParameter("event-end-time"));
+		InitialInput initialInput = objectMapper.readValue(body, InitialInput.class);
 		info("Initialized all variables. Making service request.");
-		InitialInput initialInput = reimbursementService.createNewReimbursement(initialInputId, reimbursementId, eventDate, location, description, cost, evaluationFormatId, justification, eventFileName, eventAttachment, approvalFileName, approvalAttachment, timeOutStart, timeOutEnd);
-		if (initialInput != null) {
+		InitialInput dataInitialInput = reimbursementService.createNewReimbursement(initialInput.getInitialInputId(), initialInput.getReimbursementId(), initialInput.getEventDate(), initialInput.getLocation(), initialInput.getDescription(), initialInput.getCost(), initialInput.getEvaluationFormatId(), initialInput.getJustification(), initialInput.getEventFileName(), initialInput.getEventAttachment(), initialInput.getApprovalFileName(), initialInput.getApprovalAttachment(), initialInput.getTimeOutStart(), initialInput.getTimeOutEnd());
+		if (dataInitialInput != null) {
 			info("Succesfully created new reimbursement.");
 			response.sendRedirect("CentralMenuEmployee/ViewEditDeleteReimbursementForm/view_manage_reimbursement.html");
 		} else {

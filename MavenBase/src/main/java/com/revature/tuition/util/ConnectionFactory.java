@@ -26,7 +26,7 @@ public class ConnectionFactory {
 	
 	private static String password;
 	
-	private static final String PROJECT_ROOT_DIRECTORY = "C:\\Users\\pamen\\OneDrive\\Desktop\\pameniBranch\\";
+	private static final String PROJECT_ROOT_DIRECTORY = "C:\\Users\\Michael\\Documents\\P1-Team-2\\";
 	
 	private static final String PROPERTIES_FILE = PROJECT_ROOT_DIRECTORY + "MavenBase\\src\\main\\webapp\\database.properties";
 	

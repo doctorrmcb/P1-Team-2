@@ -149,11 +149,9 @@
                                     }
                                 }
                                 console.log("testSubmit called.")
-                                //$('#form2 :input').not(':submit').clone().hide().appendTo('#form1');
                                 let testData = document.getElementById("form1");
                                 var xhr = new XMLHttpRequest();
                                 xhr.open("POST", "../../new-reimbursement", true);
-                                /* xhr.setRequestHeader('Content-Type', 'application/json'); */
                                 let input = new InitialInput("1", "1", document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, document.getElementById("validatedCustomFile").value, "file", document.getElementById("validatedCustomFile").value, "file", document.getElementById("event-start-time").value, document.getElementById("event-end-time").value);
                                 xhr.send(
                                     JSON.stringify(input)

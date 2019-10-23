@@ -18,7 +18,7 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 			String eventFileName, File eventAttachment, String approvalFileName, File approvalAttachment,
 			LocalDateTime timeOutStart, LocalDateTime timeOutEnd) {
 		// TODO Auto-generated method stub
-		info("Attempting creating new initialInput.");
+		info("Attempting creating new initialInput. (Service class started)");
 		InitialInput initialInput = new InitialInput(initialInputId, reimbursementId, eventDate, location, description, cost, evaluationFormatId, justification, eventFileName, eventAttachment, approvalFileName, approvalAttachment, timeOutStart, timeOutEnd);
 		boolean inputBool = initialInputDAO.createInitialInput(initialInput);
 		if (inputBool == true) {
