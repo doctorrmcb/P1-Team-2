@@ -63,7 +63,6 @@ function dateDisplay() {
 };
 
 function openNav() {
-    notification(4);
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
 };
