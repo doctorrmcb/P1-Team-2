@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.revature.tuition.pojo.Approval;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.tuition.dao.ApprovalDAOImpl;
 
 public class ApprovalReimbursementServlet  extends HttpServlet {
@@ -19,6 +21,7 @@ public class ApprovalReimbursementServlet  extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -8330186352077771831L;
 	private static ApprovalDAOImpl approvalDAO = new ApprovalDAOImpl();
+	ObjectMapper mapper = new ObjectMapper();
 
 	public ApprovalReimbursementServlet() {
 		super();
@@ -29,7 +32,10 @@ public class ApprovalReimbursementServlet  extends HttpServlet {
 		info("Starting doGet method for ApprovalServlet.");
 		Approval approval = approvalDAO.readApproval(2);
 		info("Succesfully read approval form from database.");
-
-	}   	
+		//response.setContentType("text/plain");
+		response.getWriter().write(mapper.writeValueAsString(approval));
+		
+	}	
+ 	
 	
 }

@@ -11,7 +11,7 @@
     <script src='../JS/code.js'></script>
 </head>
 
-<body onload='main()'>
+<body onload='printApprovalTable()'>
     <header>
         <div class="jumbotron">
             <h1 class="display-4">View, Update or Delete <br> Reimbursement Form</h1>
@@ -25,7 +25,8 @@
                 <table class="table table-hover" id="myTable">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                        <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                             <th scope="col">approval_id</th>
                             <th scope="col">reimbursement_id</th>
                             <th scope="col">dir_sup_app</th>
@@ -35,8 +36,7 @@
                             <th scope="col">ben_co_alter_info</th>
                             <th scope="col">additional_info </th>
                             <th scope="col">denial_info </th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
+                           
                         </tr>
                     </thead>
 
@@ -44,7 +44,6 @@
                     </tbody>
                 </table>
             </form>
-
 
             <!-- Start of Navigation Button Section -->
             <div class="row" id="submitRow">

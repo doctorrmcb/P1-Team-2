@@ -59,6 +59,16 @@
     <servlet-name>ApprovalReimbursementServlet</servlet-name>
     <url-pattern>/read-reimbursementForm</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>ReadListApprovalReimbursementServlett</display-name>
+    <servlet-name>ReadListApprovalReimbursementServlet</servlet-name>
+    <servlet-class>com.revature.tuition.servlet.ReadListApprovalReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadListApprovalReimbursementServlet</servlet-name>
+    <url-pattern>/read-listReimbursementForm</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>NewEventFileServlet</display-name>

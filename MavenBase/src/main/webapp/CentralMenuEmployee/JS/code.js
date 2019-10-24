@@ -190,14 +190,13 @@ function createNewReimbursement() {
             }
         }
     }
-}
+};
 
 function addCell(tr, val) {
     let td = document.createElement('td');
     td.innerHTML = val;
     tr.appendChild(td);
 };
-
 
 function printApprovalTable() {
 let tr = document.createElement('tr');
@@ -215,10 +214,10 @@ let myTable = document.getElementById("myTable");
                  //console.log(readApproval[prop]);
                 }
                 }
-                myTable.appendChild(tr);
-                }
         }
-   
+    }
+
+    myTable.appendChild(tr);
     let cella = tr.insertCell(tr.length);
     let btnRemovea = document.createElement("INPUT");
     btnRemovea.type = "button";
