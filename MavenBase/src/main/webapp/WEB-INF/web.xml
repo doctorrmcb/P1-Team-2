@@ -39,6 +39,16 @@
     <servlet-name>CreateReimbursementServlet</servlet-name>
     <url-pattern>/new-reimbursement</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApprovalReimbursementServlet</display-name>
+    <servlet-name>ApprovalReimbursementServlet</servlet-name>
+    <servlet-class>com.revature.tuition.servlet.ApprovalReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApprovalReimbursementServlet</servlet-name>
+    <url-pattern>/read-reimbursementForm</url-pattern>
+  </servlet-mapping>
   <context-param>
     <param-name>message</param-name>
     <param-value>Welcome to our website </param-value>
