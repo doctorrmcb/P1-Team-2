@@ -199,19 +199,26 @@ function addCell(tr, val) {
 };
 
 
-function addRow(myTable, val_1, val_2, val_3, val_4, val_5, val_6, val_7, val_8, val_9, val_10) {
-    let tr = document.createElement('tr');
-    addCell(tr, val_1);
-    addCell(tr, val_2);
-    addCell(tr, val_3);
-    addCell(tr, val_4);
-    addCell(tr, val_5);
-    addCell(tr, val_6);
-    addCell(tr, val_7);
-    addCell(tr, val_8);
-    addCell(tr, val_9);
-    addCell(tr, val_10);
-    myTable.appendChild(tr);
+function printApprovalTable() {
+let tr = document.createElement('tr');
+let myTable = document.getElementById("myTable");
+    let txtFile = new XMLHttpRequest();
+    txtFile.open("GET", "../../read-reimbursementForm", true);
+    txtFile.send();
+    txtFile.onreadystatechange = function() {
+        if (txtFile.readyState === 4) {  // Makes sure the document is ready to parse.
+                if (txtFile.status === 200) {  // Makes sure it's found the file.
+                allText = txtFile.responseText;
+                readApproval = JSON.parse(allText);
+                for(let prop in readApproval) {
+                addCell(tr, readApproval[prop]);
+                 //console.log(readApproval[prop]);
+                }
+                }
+                myTable.appendChild(tr);
+                }
+        }
+   
     let cella = tr.insertCell(tr.length);
     let btnRemovea = document.createElement("INPUT");
     btnRemovea.type = "button";
@@ -223,10 +230,5 @@ function addRow(myTable, val_1, val_2, val_3, val_4, val_5, val_6, val_7, val_8,
     btnRemove.type = "button";
     btnRemove.value = "Remove";
     btnRemove.setAttribute("onclick", "deleteRow(this);");
-    cell.appendChild(btnRemove);
-};
-
-function main() {
-    let myTable = document.getElementById("myTable");
-    addRow(myTable, 3, 'foo', 'bar', 'baz', 'one', 'two', 'three', 'one', 'two', 'three');
+    cell.appendChild(btnRemove);  
 };
