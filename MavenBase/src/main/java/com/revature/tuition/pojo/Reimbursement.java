@@ -6,6 +6,7 @@ public class Reimbursement {
 	private int approvalId;
 	private int initialInputId;
 	private int evaluationId;
+	private int eventTypeId;
 	private String status;
 
 	public Reimbursement() {
@@ -20,13 +21,14 @@ public class Reimbursement {
 	}
 
 	public Reimbursement(int reimbursementId, int employeeId, int approvalId, int initialInputId,
-			int evaluationId, String status) {
+			int evaluationId, int eventTypeId, String status) {
 		super();
 		this.reimbursementId = reimbursementId;
 		this.employeeId = employeeId;
 		this.approvalId = approvalId;
 		this.initialInputId = initialInputId;
 		this.evaluationId = evaluationId;
+		this.eventTypeId = eventTypeId;
 		this.status = status;
 	}
 
@@ -70,6 +72,14 @@ public class Reimbursement {
 		this.evaluationId = evaluationId;
 	}
 
+	public int getEventTypeId() {
+		return eventTypeId;
+	}
+
+	public void setEventTypeId(int eventTypeId) {
+		this.eventTypeId = eventTypeId;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -85,6 +95,7 @@ public class Reimbursement {
 		result = prime * result + approvalId;
 		result = prime * result + employeeId;
 		result = prime * result + evaluationId;
+		result = prime * result + eventTypeId;
 		result = prime * result + initialInputId;
 		result = prime * result + reimbursementId;
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
@@ -106,6 +117,8 @@ public class Reimbursement {
 			return false;
 		if (evaluationId != other.evaluationId)
 			return false;
+		if (eventTypeId != other.eventTypeId)
+			return false;
 		if (initialInputId != other.initialInputId)
 			return false;
 		if (reimbursementId != other.reimbursementId)
@@ -122,7 +135,9 @@ public class Reimbursement {
 	public String toString() {
 		return "Reimbursement [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", approvalId="
 				+ approvalId + ", initialInputId=" + initialInputId + ", evaluationId=" + evaluationId
-				+ ", status=" + status + "]";
+				+ ", eventTypeId=" + eventTypeId + ", status=" + status + "]";
 	}
 
+	
+	
 }

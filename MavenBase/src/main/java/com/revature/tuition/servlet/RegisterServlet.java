@@ -3,6 +3,7 @@ package com.revature.tuition.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +42,9 @@ public class RegisterServlet extends HttpServlet {
 		String reportsToStr = request.getParameter("reportsTo"); 
 		String title = request.getParameter("title");
 		Employee employee = employeeService.registerEmployee(name, employeeId, address, email, phone, reportsToStr, title, username, password);
+		Cookie cookie = new Cookie("employeeId", request.getParameter("employeeId"));
 		if (employee != null) {
+			response.addCookie(cookie);
 			response.sendRedirect("CentralMenuEmployee/central_menu_employee.html");
 		} else {
 			response.getWriter().write("Sorry, but you were not able to register correctly :(");

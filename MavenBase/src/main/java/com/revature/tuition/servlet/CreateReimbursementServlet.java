@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,16 +47,18 @@ public class CreateReimbursementServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		info("Starting doPost method for CreateReimbursementServlet.");
 		String body = request.getReader().readLine();
-		InitialInput initialInput = objectMapper.readValue(body, InitialInput.class);
+		Reimbursement reimbursement = objectMapper.readValue(body, Reimbursement.class);
 		//InputStream is = request.getInputStream();
 		info("Initialized all variables. Making service request.");
-		InitialInput dataInitialInput = reimbursementService.createNewReimbursement(initialInput.getInitialInputId(), initialInput.getReimbursementId(), initialInput.getEventDate(), initialInput.getLocation(), initialInput.getDescription(), initialInput.getCost(), initialInput.getEvaluationFormatId(), initialInput.getJustification(), initialInput.getEventFileName(), initialInput.getEventAttachment(), initialInput.getApprovalFileName(), initialInput.getApprovalAttachment(), initialInput.getTimeOutStart(), initialInput.getTimeOutEnd());
-		if (dataInitialInput != null) {
+		reimbursement = reimbursementService.createNewReimbursement(reimbursement.getreimbursementId(), reimbursement.getemployeeId(), reimbursement.getapprovalId(), reimbursement.getinitialInputId(), reimbursement.getevaluationId(), reimbursement.getEventTypeId(), reimbursement.getStatus());
+		if (reimbursement != null) {
 			info("Succesfully created new reimbursement.");
-			response.sendRedirect("CentralMenuEmployee/ViewEditDeleteReimbursementForm/view_manage_reimbursement.html");
+			Cookie cookie = new Cookie("newId", Integer.toString(reimbursement.getreimbursementId()));
+			response.addCookie(cookie);
+			//response.sendRedirect("CentralMenuEmployee/ViewEditDeleteReimbursementForm/view_manage_reimbursement.html");
 		} else {
 			debug("Failed to create new reimbursement. Was null.");
-			response.getWriter().write("Sorry, but you were not able to register correctly :(");
+			response.getWriter().write("Sorry, but you were not able to create a new reimbursement correctly :(");
 		}
 	}
 }

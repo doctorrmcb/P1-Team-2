@@ -16,9 +16,10 @@ create table p1_test.employees (
 create table p1_test.reimbursements (
 	reimbursement_id serial,
 	employee_id int4,
-	approval_id int4,
-	initial_input_id int4,
-	evaluation_id int4,
+	approval_id serial,
+	initial_input_id serial,
+	evaluation_id serial,
+	event_type_id int4,
 	status text,
 	constraint PK_reimbursements primary key (reimbursement_id)
 );
@@ -85,6 +86,15 @@ create table p1_test.evaluation_types (
 	constraint PK_evaluation_types primary key (evaluation_type_id)
 );
 
+-- Setting up inital coverage table.
+--insert into p1_test.event_types values (1, 1, 'University Course', .8);
+--insert into p1_test.event_types values (2, 1, 'Seminar', .6);
+--insert into p1_test.event_types values (3, 1, 'Certification Preparation Class', .75);
+--insert into p1_test.event_types values (4, 1, 'Certification', 1.0);
+--insert into p1_test.event_types values (5, 1, 'Technical Training', .9);
+--insert into p1_test.event_types values (6, 1, 'Other', .3);
+
+
 --Drop tables section:
 --drop table p1_test.approvals;
 --drop table p1_test.employees;
@@ -95,5 +105,5 @@ create table p1_test.evaluation_types (
 --drop table p1_test.reimbursements;
 
 --Test insert section:
-insert into p1_test.employees values(1, 2, 'user', 'pass', 'testName', 'testAddress', 'testEmail', 'testPhone', 2, 'testTitle', 50);
-delete from p1_test.employees where employee_id = 1;
+--insert into p1_test.employees values(1, 2, 'user', 'pass', 'testName', 'testAddress', 'testEmail', 'testPhone', 2, 'testTitle', 50);
+--delete from p1_test.employees where employee_id = 1;

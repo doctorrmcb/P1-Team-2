@@ -3,6 +3,7 @@ package com.revature.tuition.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,20 +41,25 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		Employee employee = employeeService.loginEmployee(username, password);
+		Cookie cookie = new Cookie("employeeId", Integer.toString(employee.getemployeeId()));
 		if (employee != null) {
 			
 			String title = employee.getTitle();
 			switch (title) { 
-	        case "direct supervisor": 
+	        case "direct supervisor":
+	        	response.addCookie(cookie);
 	        	response.sendRedirect("CentralMenuSupervisor/central_menu_Supervisor.html");
 	            break; 
 	        case "department head": 
+	        	response.addCookie(cookie);
 	        	response.sendRedirect("CentralMenuSupervisor/central_menu_Supervisor.html"); 
 	            break; 
 	        case "benco" : 
+	        	response.addCookie(cookie);
 	        	response.sendRedirect("CentralMenuBenco/central_menu_Benco.html");
 	            break; 
 	        default:
+	        	response.addCookie(cookie);
 	        	response.sendRedirect("CentralMenuEmployee/central_menu_employee.html");
 	        } 
 			

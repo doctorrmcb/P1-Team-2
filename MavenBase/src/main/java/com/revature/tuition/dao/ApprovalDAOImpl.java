@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 
 import com.revature.tuition.pojo.Approval;
@@ -18,10 +19,18 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	public boolean createApproval(Approval approval) {
 		// TODO Auto-generated method stub
 		info("createApproval method started. Approval: " + approval);
+		//String sql = "insert into p1_test.approvals (reimbursement_id, dir_sup_app, dept_head_app, ben_co_app, approval_time, ben_co_alter_info, additional_info, denial_info) values(?, ?, ?, ?, ?, ?, ?, ?);";
 		String sql = "insert into p1_test.approvals values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		PreparedStatement stmt;
-
+		PreparedStatement maxStmt;
+		
 		try {
+			/*
+			 * maxStmt =
+			 * connection.prepareStatement("select max(approval_id) from p1_test.approvals"
+			 * ); ResultSet rs = maxStmt.executeQuery(); rs.next(); int approvalId =
+			 * rs.getInt(1);
+			 */
 			stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, approval.getapprovalId());
 			stmt.setInt(2, approval.getreimbursementId());

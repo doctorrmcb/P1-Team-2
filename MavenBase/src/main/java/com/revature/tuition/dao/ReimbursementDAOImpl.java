@@ -22,27 +22,29 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	}
 
 	@Override
-	public boolean createReimbursement(Reimbursement reimbursement) {
+	public int createReimbursement(Reimbursement reimbursement) {
 		info("createReimbursement method started. Reimbursement: " + reimbursement);
-		String sql = "insert into p1_test.reimbursements values(?, ?, ?, ?, ?, ?);";
+		String sql = "insert into p1_test.reimbursements (employee_id, event_type_id, status) values(?, ?, ?);";
 		PreparedStatement stmt;
-
+		PreparedStatement maxStmt;
+		
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setInt(1, reimbursement.getreimbursementId());
-			stmt.setInt(2, reimbursement.getemployeeId());
-			stmt.setInt(3, reimbursement.getapprovalId());
-			stmt.setInt(4, reimbursement.getinitialInputId());
-			stmt.setInt(5, reimbursement.getevaluationId());
-			stmt.setString(6, reimbursement.getStatus());
+			stmt.setInt(1, reimbursement.getemployeeId());
+			stmt.setInt(2, reimbursement.getEventTypeId());
+			stmt.setString(3, reimbursement.getStatus());
 			stmt.executeUpdate();
 			info("createReimbursement method ending. stmt: " + stmt);
-			return true;
+			maxStmt = connection.prepareStatement("select max(reimbursement_id) from p1_test.reimbursements");
+			ResultSet rs = maxStmt.executeQuery();
+			rs.next();
+			int reimbursementId = rs.getInt(1);
+			return reimbursementId;
 		} catch (SQLException e) {
 			// TODO Implement logging.
 			e.printStackTrace();
 			error("createReimbursement method failed.");
-			return false;
+			return 0;
 		}
 	}
 
@@ -57,7 +59,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 			stmt.setInt(1, reimbursementId);
 			ResultSet rs = stmt.executeQuery();
 			rs.next();
-			Reimbursement reimbursement = new Reimbursement(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getString(6));
+			Reimbursement reimbursement = new Reimbursement(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7));
 			info("readReimbursement method ending. stmt: " + stmt);
 			return reimbursement;
 		} catch (SQLException e) {

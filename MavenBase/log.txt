@@ -461,3 +461,6 @@
 2019-10-21 16:43:11 INFO  root:26 - deleteReimbursement method ending. stmt: delete from p1_test.reimbursements where reimbursement_id = 1
 2019-10-21 16:43:16 INFO  root:26 - deleteReimbursement method started. reimbursementId: 1
 2019-10-21 16:43:16 ERROR root:14 - deleteReimbursement method failed.
+2019-10-24 01:37:05 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-24 01:38:46 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
+2019-10-24 01:38:46 INFO  root:26 - createApproval method ending. stmt: insert into p1_test.approvals values(1, 2, 'FALSE', 'FALSE', 'FALSE', '2015-10-18 02:47:40-04', 'bencoTestAlterInfo', 'testAdditionalInfo', 'testDenialInfo')

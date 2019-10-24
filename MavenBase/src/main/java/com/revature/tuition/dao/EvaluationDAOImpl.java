@@ -38,10 +38,14 @@ public class EvaluationDAOImpl implements EvaluationDAO {
 			stmt.setInt(1, evaluation.getEvaluationId());
 			stmt.setInt(2, evaluation.getReimbursementId());
 			stmt.setString(3, evaluation.getGrade());
-			File presentation = evaluation.getPresentation();
-			FileInputStream fis = StreamFactory.getFIS(presentation);
 			stmt.setString(4, evaluation.getFilePath());
-			stmt.setBinaryStream(5, fis);
+			File presentation = evaluation.getPresentation();
+			if (presentation == null) {
+				stmt.setNull(5, java.sql.Types.OTHER);
+			} else {
+				FileInputStream fis = StreamFactory.getFIS(presentation);
+				stmt.setBinaryStream(5, fis);
+			}
 			stmt.setBoolean(6, evaluation.isApproval());
 			stmt.executeUpdate();
 			info("createEvaluation method ending. stmt: " + stmt);
