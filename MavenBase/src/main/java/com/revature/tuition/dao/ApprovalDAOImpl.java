@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import com.revature.tuition.pojo.Approval;
 import com.revature.tuition.util.ConnectionFactory;
@@ -131,4 +132,29 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	}
 
 	private Connection connection = ConnectionFactory.getConnection();
+
+	@Override
+	public ArrayList<Approval> readAllApprovals() {
+		info("readAllApprovals method started.");
+		String sql = "select * from p1_test.approvals;";
+		PreparedStatement stmt;
+		
+		try {
+			stmt = connection.prepareStatement(sql);
+			ArrayList<Approval> resultList = new ArrayList<>();
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Approval approval = new Approval(rs.getInt(1), rs.getInt(2), rs.getBoolean(3), rs.getBoolean(4),
+						rs.getBoolean(5), rs.getTimestamp(6).toLocalDateTime(), rs.getString(7), rs.getString(8), rs.getString(9));
+				resultList.add(approval);
+			}
+			info("readAllApprovals method ending.");
+			return resultList;
+		} catch (SQLException e) {
+			// TODO Implement logging.
+			e.printStackTrace();
+			error("readAllApprovals method failed.");
+			return null;
+		}
+	}
 }
