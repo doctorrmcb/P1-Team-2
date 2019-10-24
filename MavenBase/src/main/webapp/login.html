@@ -19,7 +19,14 @@
         </div>
     </header>
     <footer>
-
+        <!-- Add an on load function that does the auto approval checks.-->
+            <!-- OnLoad eventListener... 
+                Calls a function that makes an XHR request to a specific URL 
+                (don't really care what the URL is yet since it hasn't been implemented)...
+                Once XHR request is made, the servlet calls the auto update approval service class
+                The auto update approval service class makes a call to the approvalDAO
+                The approvalDAO needs a new function that checks all reimbursements based on the date and the approval state
+                If the approval state and date are past a certain point then it will update the approval status of the reimbursement -->
         <div class="accordion" id="accordionExample">
             <!-- Start of Section 1 -->
             <div class="login-page">
