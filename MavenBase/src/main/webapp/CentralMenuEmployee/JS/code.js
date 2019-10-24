@@ -128,3 +128,42 @@ function createNewReimbursement() {
     xhrFile.open("POST", "../../new-file", true);
     xhrFile.send(file); */
 }
+
+function addCell(tr, val) {
+    let td = document.createElement('td');
+    td.innerHTML = val;
+    tr.appendChild(td);
+};
+
+
+function addRow(myTable, val_1, val_2, val_3, val_4, val_5, val_6, val_7, val_8, val_9, val_10) {
+    let tr = document.createElement('tr');
+    addCell(tr, val_1);
+    addCell(tr, val_2);
+    addCell(tr, val_3);
+    addCell(tr, val_4);
+    addCell(tr, val_5);
+    addCell(tr, val_6);
+    addCell(tr, val_7);
+    addCell(tr, val_8);
+    addCell(tr, val_9);
+    addCell(tr, val_10);
+    myTable.appendChild(tr);
+    let cella = tr.insertCell(tr.length);
+    let btnRemovea = document.createElement("INPUT");
+    btnRemovea.type = "button";
+    btnRemovea.value = "Edit";
+    btnRemovea.setAttribute("onclick", "goToUpdateForm();");
+    cella.appendChild(btnRemovea);
+    let cell = tr.insertCell(tr.length);
+    let btnRemove = document.createElement("INPUT");
+    btnRemove.type = "button";
+    btnRemove.value = "Remove";
+    btnRemove.setAttribute("onclick", "deleteRow(this);");
+    cell.appendChild(btnRemove);
+};
+
+function main() {
+    let myTable = document.getElementById("myTable");
+    addRow(myTable, 3, 'foo', 'bar', 'baz', 'one', 'two', 'three', 'one', 'two', 'three');
+};

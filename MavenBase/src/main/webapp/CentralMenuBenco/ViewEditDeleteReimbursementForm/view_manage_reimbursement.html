@@ -11,7 +11,7 @@
     <script src='../JS/code.js'></script>
 </head>
 
-<body>
+<body onload='main()'>
     <header>
         <div class="jumbotron">
             <h1 class="display-4">View, Update or Delete <br> Reimbursement Form</h1>
@@ -41,38 +41,9 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>00259</td>
-                            <td>Team Well</td>
-                            <td>52600</td>
-                            <td>$ 123.65</td>
-                            <td>University Classes</td>
-                            <td>Approval Level 2</td>
-                            <td>10/29/2019</td>
-                            <td>Otto Marie</td>
-                            <td>Director Manager</td>
-                            <td><input type="button" value="Edit" onclick="goToUpdateForm()"></td>
-                            <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>00259</td>
-                            <td>Team Well</td>
-                            <td>52520</td>
-                            <td>$ 523.65</td>
-                            <td>Certification</td>
-                            <td>Approval Level 1</td>
-                            <td>10/29/2069</td>
-                            <td>Otto Marie</td>
-                            <td>Supervisor</td>
-                            <td><input type="button" value="Edit" onclick="goToUpdateForm()"></td>
-                            <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
-                        </tr>
                     </tbody>
                 </table>
             </form>
-
 
             <!-- Start of Navigation Button Section -->
             <div class="row" id="submitRow">
