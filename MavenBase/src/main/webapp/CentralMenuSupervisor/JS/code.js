@@ -74,7 +74,7 @@ function closeNav() {
 
 function notification(n) {
     for (let i = 0; i < n; i++) {
-        createAnchor("[message goes here]");
+        createAnchor("You have a new reimbursement form to review.");
     }
 
 };

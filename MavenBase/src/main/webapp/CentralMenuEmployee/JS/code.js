@@ -66,7 +66,7 @@ function closeNav() {
 
 function notification(n) {
     for (let i = 0; i < n; i++) {
-        createAnchor("[notification triggers onload]");
+        createAnchor("You have no messages at this time.");
     }
 
 };
