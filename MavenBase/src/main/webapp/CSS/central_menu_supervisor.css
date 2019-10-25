@@ -7,7 +7,9 @@ header {
 .jumbotron {
     margin: 1px;
     padding: 0;
-    padding-top: 3%;    
+    padding-top: 3%;
+    color: #f2f2f2;
+    background-color: rgba(87, 58, 41, .9);    
 }
 
 .lead{

@@ -10,11 +10,11 @@ header {
 
 .jumbotron {
     color: #f2f2f2;
-    background-color: #4114D2;
+    background-color: rgba(87, 58, 41, .9);
 }
 
 body {
-    background-color: #140150;
+    background-color: rgba(87, 58, 41, .9);
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(grovemade-RvPDe41lYBA-unsplash.jpg);
     height: 100vh;
     background-size: cover;
@@ -61,14 +61,14 @@ body {
     padding-left: 3%;
     padding-right: 3%;
     padding-bottom: 0.5%;
-    background: rgba(7, 40, 195, 0.8);
+    background: rgba(87, 58, 41, .9);
 }
 
 /* This section changes the button style*/
 .form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
-    background: #4CAF50;
+    background: rgb(46, 30, 23);
     width: 100%;
     border: 0;
     padding: 4%;
@@ -80,7 +80,7 @@ body {
 /* This section changes the color of the buttons when you hover or click them.*/
 .form button:hover,
 .form button:active {
-    background: #43A047;
+    background: rgb(37, 24, 19);
 }
 
 /* This section controls the register/login message.*/
@@ -98,7 +98,7 @@ body {
 .register-form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
-    background: #4CAF50;
+    background: rgb(46, 30, 23);
     width: 100%;
     border: 0;
     padding: 1%;

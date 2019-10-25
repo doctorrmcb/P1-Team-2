@@ -25,6 +25,15 @@ header {
     border: 0;
 }
 
+.btn {
+    background: rgb(83, 53, 41);
+    border: 0px;
+}
+
+.btn:hover, .btn:active{
+    background: rgb(61, 39, 30);
+}
+
 .card-header {
     text-align: left;
 }

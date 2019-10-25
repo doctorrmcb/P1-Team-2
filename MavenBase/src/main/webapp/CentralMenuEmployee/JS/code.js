@@ -27,7 +27,7 @@ function logoutFromViewUpdateForm() {
 };
 
 function logoutFromEditForm() {
-    location.replace(href = '../..login.html');
+    location.replace(href = '../../login.html');
 };
 
 function goToViewFormFromEdit() {
