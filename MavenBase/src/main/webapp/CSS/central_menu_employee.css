@@ -1,0 +1,33 @@
+header {
+    text-align: center;
+    margin: 1px;
+    padding: 0;
+}
+
+.jumbotron {
+    margin: 1px;
+    padding: 0;
+    padding-top: 3%;    
+    color: #f2f2f2;
+    background-color: rgba(87, 58, 41, .9);  
+}
+
+.lead{
+    margin: 50px;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+.btn:hover,
+.btn:active {
+    background: rgb(37, 24, 19);
+}
+
+#dropdownMenuButton {
+    text-align: left;
+    border: 0;
+}

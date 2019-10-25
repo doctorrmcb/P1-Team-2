@@ -1,0 +1,41 @@
+.jumbotron {
+    text-align: center;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.submitDiv {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#event-start-time, #event-end-time {
+    margin: .4rem 0;
+}
+
+.btn {
+    background: rgb(83, 53, 41);
+    border: 0px;
+}
+
+.btn:hover, .btn:active{
+    background: rgb(61, 39, 30);
+}
+
+.btn-link {
+    margin-top: 0%
+}
+
+#myCreation {
+    background: rgb(83, 53, 41);
+    color: #f2f2f2;
+}

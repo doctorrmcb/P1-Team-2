@@ -1,0 +1,87 @@
+header {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.jumbotron {
+    margin: 0;
+    padding: 0;
+    padding-top: 3%;
+}
+
+.lead {
+    margin: 30px;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+#dropdownMenuButton {
+    text-align: left;
+    border: 0;
+}
+
+.card-header {
+    text-align: left;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+    height: 50%;
+    width: 0;
+    position: fixed;
+    top: 50;
+    left: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-size: 25px;
+    color: whitesmoke;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+.btn {
+    background: rgb(83, 53, 41);
+    border: 0px;
+}
+
+.btn:hover, .btn:active{
+    background: rgb(61, 39, 30);
+}
