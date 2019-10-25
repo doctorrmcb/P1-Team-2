@@ -233,3 +233,50 @@ let myTable = document.getElementById("myTable");
     btnRemove.setAttribute("onclick", "deleteRow(this);");
     cell.appendChild(btnRemove);  
 };
+
+
+function getAllApprovals() {
+//listFile.open("GET", "../../read-listReimbursementForm", true);
+let myTable = document.getElementById("myTable");
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "../../read-listReimbursementForm", true);
+    xhr.send();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {  // Makes sure the document is ready to parse.
+                if (xhr.status === 200) {  // Makes sure it's found the file.
+                let allText = xhr.responseText;
+                let readApproval = JSON.parse(allText);
+                let leng = readApproval.length;
+                for(let prop in readApproval) {
+                console.log(readApproval[prop]);
+                //approval_id, reimbursement_id, dir_sup_app, dept_head_app, ben_co_app,
+                //approval_time, ben_co_alter_info, additional_info, denial_info
+                let tr = document.createElement('tr');
+                addCell(tr, readApproval[prop].approvalId);
+                addCell(tr, readApproval[prop].reimbursementId);
+                addCell(tr, readApproval[prop].dirSupApp);
+                addCell(tr, readApproval[prop].deptHeadApp);
+                addCell(tr, readApproval[prop].benCoApp);
+                addCell(tr, readApproval[prop].approvalTime);
+                addCell(tr, readApproval[prop].benCoAlterInfo);
+                addCell(tr, readApproval[prop].additionalInfo);
+                addCell(tr, readApproval[prop].denialInfo);
+                myTable.appendChild(tr);
+                let cella = tr.insertCell(tr.length);
+                let btnRemovea = document.createElement("INPUT");
+                btnRemovea.type = "button";
+                btnRemovea.value = "Edit";
+                btnRemovea.setAttribute("onclick", "goToUpdateForm();");
+                cella.appendChild(btnRemovea);
+                let cell = tr.insertCell(tr.length);
+                let btnRemove = document.createElement("INPUT");
+                btnRemove.type = "button";
+                btnRemove.value = "Remove";
+                btnRemove.setAttribute("onclick", "deleteRow(this);");
+                cell.appendChild(btnRemove);  
+            }
+                }
+            }
+        }
+   
+};

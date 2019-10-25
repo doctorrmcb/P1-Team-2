@@ -61,23 +61,23 @@
   </servlet-mapping>
    <servlet>
     <description></description>
-    <display-name>ReadListApprovalReimbursementServlett</display-name>
-    <servlet-name>ReadListApprovalReimbursementServlet</servlet-name>
-    <servlet-class>com.revature.tuition.servlet.ReadListApprovalReimbursementServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ReadListApprovalReimbursementServlet</servlet-name>
-    <url-pattern>/read-listReimbursementForm</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>NewEventFileServlet</display-name>
+       <display-name>NewEventFileServlet</display-name>
     <servlet-name>NewEventFileServlet</servlet-name>
     <servlet-class>com.revature.tuition.servlet.NewEventFileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>NewEventFileServlet</servlet-name>
     <url-pattern>/new-event-file</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReadListApprovalReimbursementServlet</display-name>
+    <servlet-name>ReadListApprovalReimbursementServlet</servlet-name>
+    <servlet-class>com.revature.tuition.servlet.ReadListApprovalReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadListApprovalReimbursementServlet</servlet-name>
+    <url-pattern>/read-listReimbursementForm</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
