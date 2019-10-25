@@ -464,3 +464,13 @@
 2019-10-24 01:37:05 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
 2019-10-24 01:38:46 INFO  root:26 - createApproval method started. Approval: Approval [approvalId=1, reimbursementId=2, dirSupApp=false, deptHeadApp=false, benCoApp=false, approvalTime=2015-10-18T02:47:40, benCoAlterInfo=bencoTestAlterInfo, additionalInfo=testAdditionalInfo, denialInfo=testDenialInfo]
 2019-10-24 01:38:46 INFO  root:26 - createApproval method ending. stmt: insert into p1_test.approvals values(1, 2, 'FALSE', 'FALSE', 'FALSE', '2015-10-18 02:47:40-04', 'bencoTestAlterInfo', 'testAdditionalInfo', 'testDenialInfo')
+2019-10-24 21:21:14 INFO  root:26 - createReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=1, approvalId=1, initialInputId=1, evaluationId=1, eventTypeId=1, status=testStatus]
+2019-10-24 21:21:14 INFO  root:26 - createReimbursement method ending. stmt: insert into p1_test.reimbursements (employee_id, event_type_id, status) values(1, 1, 'testStatus')
+2019-10-24 21:22:57 INFO  root:26 - createReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=1, approvalId=1, initialInputId=1, evaluationId=1, eventTypeId=1, status=testStatus]
+2019-10-24 21:22:57 INFO  root:26 - createReimbursement method ending. stmt: insert into p1_test.reimbursements (employee_id, event_type_id, status) values(1, 1, 'testStatus')
+2019-10-24 21:23:04 INFO  root:26 - createReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=1, approvalId=1, initialInputId=1, evaluationId=1, eventTypeId=1, status=testStatus]
+2019-10-24 21:23:04 ERROR root:14 - createReimbursement method failed.
+2019-10-24 21:23:18 INFO  root:26 - createReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=1, approvalId=1, initialInputId=1, evaluationId=1, eventTypeId=1, status=testStatus]
+2019-10-24 21:23:18 INFO  root:26 - createReimbursement method ending. stmt: insert into p1_test.reimbursements (employee_id, event_type_id, status) values(1, 1, 'testStatus')
+2019-10-24 21:26:13 INFO  root:26 - createReimbursement method started. Reimbursement: Reimbursement [reimbursementId=1, employeeId=1, approvalId=1, initialInputId=1, evaluationId=1, eventTypeId=1, status=testStatus]
+2019-10-24 21:26:13 INFO  root:26 - createReimbursement method ending. stmt: insert into p1_test.reimbursements (employee_id, event_type_id, status) values(1, 1, 'testStatus')

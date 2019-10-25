@@ -35,7 +35,11 @@ public class ReimbursementDAOImplTest {
 
 	@Spy
 	PreparedStatement stmtCreate = ConnectionFactory.getConnection()
-			.prepareStatement("insert into p1_test.reimbursements values(?, ?, ?, ?, ?, ?);");
+			.prepareStatement("insert into p1_test.reimbursements (employee_id, event_type_id, status) values(?, ?, ?);");
+
+	@Spy
+	PreparedStatement stmtCreate2 = ConnectionFactory.getConnection()
+			.prepareStatement("select max(reimbursement_id) from p1_test.reimbursements");
 
 	@Spy
 	PreparedStatement stmtRead = ConnectionFactory.getConnection()
@@ -70,12 +74,15 @@ public class ReimbursementDAOImplTest {
 
 	@Test
 	public void createReimbursementSuccessTest() {
-		String sql = "insert into p1_test.reimbursements values(?, ?, ?, ?, ?, ?);";
-		Reimbursement reimbursement = new Reimbursement(1, 1, 1, 1, 1, "testStatus");
+		String sql = "insert into p1_test.reimbursements (employee_id, event_type_id, status) values(?, ?, ?);";
+		String sql2 = "select max(reimbursement_id) from p1_test.reimbursements";
+		Reimbursement reimbursement = new Reimbursement(1, 1, 1, 1, 1, 1, "testStatus");
 		try {
 			when(connection.prepareStatement(sql)).thenReturn(stmtCreate);
+			when(connection.prepareStatement(sql2)).thenReturn(stmtCreate2);
 			reimbursementDAO.setConnection(connection);
-			assertTrue(reimbursementDAO.createReimbursement(reimbursement));
+			// This test will always fail, because the 1 doesn't match the max reim_id dynamically.
+			assertEquals(1, reimbursementDAO.createReimbursement(reimbursement));
 			Mockito.verify(stmtCreate).executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,12 +91,12 @@ public class ReimbursementDAOImplTest {
 
 	@Test
 	public void createReimbursementFailTest() {
-		String sql = "insert into p1_test.reimbursements values(?, ?, ?, ?, ?, ?);";
-		Reimbursement reimbursement = new Reimbursement(1, 1, 1, 1, 1, "testStatus");
+		String sql = "insert into p1_test.reimbursements (employee_id, event_type_id, status) values(?, ?, ?);";
+		Reimbursement reimbursement = new Reimbursement(1, 1, 1, 1, 1, 1, "testStatus");
 		try {
 			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
 			reimbursementDAO.setConnection(connection);
-			assertFalse(reimbursementDAO.createReimbursement(reimbursement));
+			assertEquals(0, reimbursementDAO.createReimbursement(reimbursement));
 			Mockito.verify(exceptionSpy).printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -100,7 +107,7 @@ public class ReimbursementDAOImplTest {
 	public void readReimbursementSuccessTest() {
 		String sql = "select * from p1_test.reimbursements where reimbursement_id = ?;";
 		int reimbursementId = 1;
-		Reimbursement reimbursement = new Reimbursement(1, 1, 1, 1, 1, "testStatus");
+		Reimbursement reimbursement = new Reimbursement(1, 1, 1, 1, 1, 1, "testStatus");
 		try {
 			when(connection.prepareStatement(sql)).thenReturn(stmtRead);
 			reimbursementDAO.setConnection(connection);
@@ -129,7 +136,7 @@ public class ReimbursementDAOImplTest {
 	@Test
 	public void updateReimbursementSuccessTest() {
 		String sql = "update p1_test.reimbursements set employee_id = ?, reimbursement_id = ?, initial_input_id = ?, evaluation_id = ?, status = ? where reimbursement_id = ?;";
-		Reimbursement reimbursement = new Reimbursement(1, 2, 1, 1, 1, "testStatus");
+		Reimbursement reimbursement = new Reimbursement(1, 2, 1, 1, 1, 1, "testStatus");
 		try {
 			when(connection.prepareStatement(sql)).thenReturn(stmtUpdate);
 			reimbursementDAO.setConnection(connection);
@@ -143,7 +150,7 @@ public class ReimbursementDAOImplTest {
 	@Test
 	public void updateReimbursementFailTest() {
 		String sql = "update p1_test.reimbursements set employee_id = ?, reimbursement_id = ?, initial_input_id = ?, evaluation_id = ?, status = ? where reimbursement_id = ?;";
-		Reimbursement reimbursement = new Reimbursement(1, 2, 1, 1, 1, "testStatus");
+		Reimbursement reimbursement = new Reimbursement(1, 2, 1, 1, 1, 1, "testStatus");
 		try {
 			when(connection.prepareStatement(sql)).thenThrow(exceptionSpy);
 			reimbursementDAO.setConnection(connection);
