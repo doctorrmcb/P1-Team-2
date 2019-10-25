@@ -105,10 +105,9 @@ document.querySelectorAll('input[type=number]')
         if (!e.value) e.value = '00';
     });
 
-
 function createNewReimbursement() {
     class InitialInput {
-        constructor(initialInputId, reimbursementId, eventDate, location, description, cost, evaluationFormatId, justification, eventFileName, eventAttachment, approvalFileName, approvalAttachment, timeOutStart, timeOutEnd) {
+        constructor(initialInputId, reimbursementId, eventDate, location, description, cost, evaluationFormatId, justification, eventFileName, eventAttachment, approvalFileName, approvalAttachment, timeOutStart, timeOutEnd, addInfo) {
             this.initialInputId = initialInputId;
             this.reimbursementId = reimbursementId;
             this.eventDate = eventDate;
@@ -123,18 +122,83 @@ function createNewReimbursement() {
             this.approvalAttachment = approvalAttachment;
             this.timeOutStart = timeOutStart;
             this.timeOutEnd = timeOutEnd;
+            this.addInfo = addInfo;
         }
     }
-    console.log("testSubmit called.")
-    let testData = document.getElementById("form1");
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../../new-reimbursement", true);
-    let input = new InitialInput("1", "1", document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, document.getElementById("validatedCustomFile").value, "file", document.getElementById("validatedCustomFile").value, "file", document.getElementById("event-start-time").value, document.getElementById("event-end-time").value);
-    xhr.send(
-        JSON.stringify(input)
-    );
-}
 
+    class Reimbursement {
+        constructor(reimbursementId, employeeId, approvalId, initialInputId, evaluationId, eventTypeId, status) {
+            this.reimbursementId = reimbursementId;
+            this.employeeId = employeeId;
+            this.approvalId = approvalId;
+            this.initialInputId = initialInputId;
+            this.evaluationId = evaluationId;
+            this.eventTypeId = eventTypeId;
+            this.status = status;
+        }
+    }
+    
+    console.log("testSubmit called.")
+    //additional info
+    // New Reimbursement:
+    // -create new approval id
+    // -create new evaluation id and put in new evaluation object
+    // -Evaluation type needed if people select other...
+
+
+    // Gets the employeeId from the cookie.
+    let cookie = document.cookie;
+    let empId = cookie.substring(11, cookie.length);
+    let eventTypeId = document.getElementById("eventTypeId").value;
+    // Creates new reimId, attaches to currently signed employee, creates new appId, creates new initId, creates new evalId, sets status."
+    //                                  reim emp  app init eval  event  status
+    let reimbursement = new Reimbursement(1, Number(empId), 1, 1, 1, Number(eventTypeId), "Waiting for Approval");
+    var xhrNewReimbursement = new XMLHttpRequest();
+    xhrNewReimbursement.open("POST", "../../new-reimbursement", true);
+    xhrNewReimbursement.send(JSON.stringify(reimbursement));
+
+    xhrNewReimbursement.onreadystatechange = function() {
+        if (xhrNewReimbursement.readyState === 4) {
+            if (xhrNewReimbursement.status === 200) {
+                // Getting updated cookies.
+                let cookies = document.cookie;
+                let newId = cookies.split('; ');
+                newId = newId[1].substring(6, newId[1].length);
+                let addInfo = document.getElementById("additionalInfo").value;
+                let fileName = document.getElementById("validatedCustomFile").value;
+                fileName = fileName.split('\\').pop().split('/').pop();
+                let input = new InitialInput(newId, newId, document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, fileName, null, fileName, null, document.getElementById("event-start-time").value, document.getElementById("event-end-time").value, addInfo);
+                // Creates InitialInput obj, Approval obj, & Evaluation obj.
+                var xhrInitialInput = new XMLHttpRequest();
+                xhrInitialInput.open("POST", "../../new-init-input", true); 
+                xhrInitialInput.send(JSON.stringify(input));
+                xhrInitialInput.onreadystatechange = function() {
+                    if (xhrInitialInput.readyState === 4) {
+                        if (xhrInitialInput.status === 200) {
+                            let target = document.getElementById("fileId").value;
+                            
+                            var xhrFile = new XMLHttpRequest();
+                            if (target === "1") {
+                                xhrFile.open("POST", "../../new-event-file", true);
+                            } else {
+                                xhrFile.open("POST", "../../new-approval-file", true);
+                            }
+                            let file = document.getElementById("validatedCustomFile").files[0];
+                            xhrFile.send(file);
+                            xhrFile.onreadystatechange = function() {
+                                if (xhrFile.readyState === 4) {
+                                    if (xhrFile.status === 200) {
+                                        submittingAfterCreation()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }    
+            }
+        }
+    }
+};
 
 function addCell(tr, val) {
     let td = document.createElement('td');
