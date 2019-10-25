@@ -83,10 +83,18 @@ public class InitialInputDAOImpl implements InitialInputDAO {
 			rs.next();
 			InputStream eis = rs.getBinaryStream(10);
 			File eventFile = new File(rs.getString(9));
-			eventFile = StreamFactory.getFileCopy(eventFile, eis);
+			if (eis == null) {
+				eventFile = null;
+			} else {
+				eventFile = StreamFactory.getFileCopy(eventFile, eis);
+			}
 			InputStream ais = rs.getBinaryStream(12);
 			File approvalFile = new File(rs.getString(11));
-			approvalFile = StreamFactory.getFileCopy(approvalFile, ais);
+			if (ais == null) {
+				approvalFile = null;
+			} else {
+				approvalFile = StreamFactory.getFileCopy(approvalFile, ais);
+			}
 			InitialInput initialInput = new InitialInput(rs.getInt(1), rs.getInt(2), rs.getTimestamp(3).toLocalDateTime(), rs.getString(4), rs.getString(5), rs.getDouble(6), rs.getInt(7), rs.getString(8), rs.getString(9), eventFile, rs.getString(11), approvalFile, rs.getTimestamp(13).toLocalDateTime(), rs.getTimestamp(14).toLocalDateTime());
 			System.out.println(initialInput.toString());
 			info("readInitialInput method ending. stmt: " + stmt);
@@ -116,12 +124,20 @@ public class InitialInputDAOImpl implements InitialInputDAO {
 			stmt.setString(7, initialInput.getJustification());
 			stmt.setString(8, initialInput.getEventFileName());
 			File eventFile = initialInput.getEventAttachment();
-			FileInputStream efis = StreamFactory.getFIS(eventFile);
-			stmt.setBinaryStream(9, efis);
+			if (eventFile == null) {
+				stmt.setNull(9, java.sql.Types.OTHER);
+			} else {
+				FileInputStream efis = StreamFactory.getFIS(eventFile);
+				stmt.setBinaryStream(9, efis);
+			}
 			stmt.setString(10, initialInput.getApprovalFileName());
 			File approvalFile = initialInput.getApprovalAttachment();
-			FileInputStream afis = StreamFactory.getFIS(approvalFile);
-			stmt.setBinaryStream(11, afis);
+			if (approvalFile == null) {
+				stmt.setNull(11, java.sql.Types.OTHER);
+			} else {
+				FileInputStream afis = StreamFactory.getFIS(approvalFile);
+				stmt.setBinaryStream(11, afis);
+			}
 			stmt.setTimestamp(12, Timestamp.valueOf(initialInput.getTimeOutStart()));
 			stmt.setTimestamp(13, Timestamp.valueOf(initialInput.getTimeOutEnd()));
 			stmt.setInt(14, initialInput.getInitialInputId());

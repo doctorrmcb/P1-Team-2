@@ -159,7 +159,9 @@ function createNewReimbursement() {
                 let newId = cookies.split('; ');
                 newId = newId[1].substring(6, newId[1].length);
                 let addInfo = document.getElementById("additionalInfo").value;
-                let input = new InitialInput(newId, newId, document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, document.getElementById("validatedCustomFile").value, null, document.getElementById("validatedCustomFile").value, null, document.getElementById("event-start-time").value, document.getElementById("event-end-time").value, addInfo);
+                let fileName = document.getElementById("validatedCustomFile").value;
+                fileName = fileName.split('\\').pop().split('/').pop();
+                let input = new InitialInput(newId, newId, document.getElementById("event-start-time").value, document.getElementById("location").value, document.getElementById("description").value, document.getElementById("cost").value, document.getElementById("evaluationFormatId").value, document.getElementById("justification").value, fileName, null, fileName, null, document.getElementById("event-start-time").value, document.getElementById("event-end-time").value, addInfo);
                 // Creates InitialInput obj, Approval obj, & Evaluation obj.
                 var xhrInitialInput = new XMLHttpRequest();
                 xhrInitialInput.open("POST", "../../new-init-input", true); 

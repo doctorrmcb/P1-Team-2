@@ -130,6 +130,7 @@
                                     //get the file name
                                     var fileName = $(this).val();
                                     //replace the "Choose a file" label
+                                    fileName = fileName.split('\\').pop().split('/').pop();
                                     $(this).next('.custom-file-label').html(fileName);
                                 })
                             </script>
